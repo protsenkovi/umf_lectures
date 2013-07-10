@@ -1,0 +1,94 @@
+\[
+	\Delta u = 0 \quad \mbox{ \textit{внутри круга}}
+\]
+Граничное условие
+\[
+	u\big|_{\Gamma} = f (\theta)
+\]
+$\Gamma$ -- окружность радиуса $R$
+\[
+	u|_{r = k} = f (\theta)
+\]
+тогда в полярной системе координат 
+\[
+	\Delta u = \derp{u}{r}{2} + \frac{1}{r} \derp{u}{r}{} + \frac{1}{r^2} \derp{u}{\theta}{2} = 0
+\]
+\\
+\[
+	u = F(r) \cdot G (\theta)
+\]
+\[
+	\left. F'' G + \frac{1}{r} F' G + \frac{1}{r^2} F G'' = 0 \quad \right| \frac{r^2}{F G}
+\]
+\\
+\[
+	\frac{r^2 F'' + r F'}{F} = - \frac{G''}{G} = \lambda
+\]
+Получаем уравнения вида
+\[
+	G''(\theta) = - \lambda G(\theta) 
+\]
+\[
+	r^2 F''(r) + r F'(r) = \lambda F(r)
+\]
+
+\[
+	\lambda > 0\quad \lambda = \gamma^2 > 0 \quad \gamma = n
+\]
+\[
+	r^2 F''(r) + r F'(r) - n^2 F(r) = 0
+\]
+Решения
+\[
+	G = A \cos \gamma \theta + B \sin \gamma \theta
+\]
+Функцию $F$ будем искать в виде $R(r) = r^\mu$. Подставляя в уравнение и сокращая на $r^\mu$, найдём 
+\[
+	n^2 = \mu^2 \quad \mbox{или} \quad  \mu = \pm n (n > 0).
+\]
+Следовательно
+\[
+	F = C_1 r^n + C_2 r^{-n}
+\]
+
+Для решения внутренней задачи надо положить $R = C_1 r^n\: (\mu = n)$, так как, если $C_2 \neq 0$, то функция $u = F(r) G(\theta)$ обращается в бесконечность при $r = 0$ и не является гармонической функцией вокруг круга. Для решения внешней задачи, наоборот, надо брать $R = C_2 r^{-n}\: (\mu = - n)$, так как решение внешней задачи должно быть ограничено  в бесконечности.
+
+
+Так как $G$ должна иметь период $2 \pi$, то $\gamma = n$.
+\[
+	G = A \cos n \theta + B \sin n \theta, \quad  n \in \mathbb{N} 
+\]
+Таким образом частное решение для $r \leqslant R$ имеет вид
+\[
+	u_m = (C_1 A \cos n \theta + C_1 B \sin n \theta) r^n
+\]
+Сумма решения
+\[
+	u(r, \theta) =  \sum\limits_{n = 1}^{\infty} (C_{1n} \cos n \theta + C_{2n} \sin n \theta) r^n
+\]
+Найдём коэффициенты используя граничное условие
+\begin{equation}
+	u(\theta, R) =  C_{10} + \sum\limits_{n = 1}^{\infty} (C_{1n} \cos n \theta + C_{2n} \sin n \theta) R^n = f(\theta) 
+	\label{equ:equBorder}
+\end{equation}
+Возьмём разложение $f(\theta)$ в ряд Фурье 
+\begin{equation}
+	f(\theta) = \frac{\alpha_0}{2} + \sum\limits_{n = 1}^{\infty} (\alpha_n \cos n \theta + \beta_n \sin n \theta)
+	\label{equ:equFourierF}
+\end{equation}
+где 
+\begin{align*}
+	\alpha_0 &= \frac{1}{\pi} \int\limits_{-\pi}^\pi f(\psi)\, d \psi\\
+	\alpha_n &=  \frac{1}{\pi} \int\limits_{-\pi}^\pi f(\psi) \cos n \psi\, d \psi \quad (n = 1, 2, \ldots)\\
+	\beta_n &=  \frac{1}{\pi} \int\limits_{-\pi}^\pi f(\psi) \sin n \psi\, d \psi \quad (n = 1, 2, \ldots)
+\end{align*}
+Сравнивая \eqref{equ:equBorder} и \eqref{equ:equFourierF}, получаем 
+\begin{align*}
+	&C_{10} = \frac{\alpha_0}{2}, \quad C_{1n} = \frac{\alpha_n}{R^n}, \quad C_{2n} = \frac{\beta_n}{R^n}
+\end{align*}
+
+Таким образом, мы получили формальное решение первой внутренней задачи для круга в виде ряда
+\begin{equation}
+	u(\theta, r) =  \frac{\alpha_0}{2} + \sum\limits_{n = 1}^{\infty} (\alpha_n \cos n \theta + \beta_n \sin n \theta) \left(\frac{r}{R} \right)^n
+	\label{equ:equSolveDirihletProblemRow}
+\end{equation}

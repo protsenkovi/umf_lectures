@@ -1,0 +1,180 @@
+При изучении колебаний заделанного клина приходится исследовать функцию на экстремумы
+\begin{example}{}
+\[
+I = \int\limits_0^1 (ax^3 y''^2- b x y^2)\, dx
+\]
+
+\begin{align*}
+&y(1) = 0\\
+&y'(1) = 0
+\end{align*}
+
+Координат функция удовлетворяет начальным условиям
+
+\begin{align*}
+(x &- 1)^2\\
+(x &- 1)^2x\\
+(x &- 1)^2x^3\\
+&\ldots\\
+(x &- 1)^2 x^{n-1}
+\end{align*}
+\[
+y_n = \sum\limits_{k = 1}^n \alpha_k (x - 1)^2 x^{k - 1}
+\]
+
+\[
+J_2 = (x - 1)^2(\alpha_1 + \alpha_2 \lambda)
+\]
+
+\[
+J_2 = J(y_2) = \int\limits_0^1 \left[ ax^3 (6 \alpha_2x + 2 \alpha_1 - 6 \alpha_2)^2 -bx (x - 1)^n(\alpha_1 + \alpha_2 x) \right] \, dx
+\]
+Раскрыв скобки и проинтегрировав получим
+\[
+a \left[(\alpha_1-2\alpha_2)^2+\frac{24}{5}\alpha_2(\alpha_1 - 2 \alpha_2) + 6 \alpha_2 \right] - b\left[\frac{\alpha_1^2}{30} +2 \frac{\alpha_1\alpha_2}{105}+\frac{\alpha_2^2}{280} \right]
+\]
+Необходимое условие экстремума
+\[
+\derp{I_2}{\alpha_1}{} = 0 \quad \derp{I_2}{\alpha_2}{} = 0
+\]
+
+\[
+\left(a - \frac{b}{30}\right)\alpha_1 + \left(\frac{2}{5} a - \frac{b}{105}\right) \alpha_2 = 0
+\]
+
+\[
+\left(\frac{2}{5} a - \frac{b}{105}\right)\alpha_1 + \left(\frac{2}{5}a - \frac{b}{280}\right) \alpha_2 = 0
+\]
+Для получения колебаний необходиимо, чтобы был детерминант
+
+\[
+\begin{vmatrix} 
+a - \dfrac{b}{30}& \dfrac{2}{5} a - \dfrac{b}{105}\\
+\dfrac{2}{5} - \dfrac{b}{105}& \dfrac{2}{5}a - \dfrac{b}{280}
+\end{vmatrix} = 0
+\]
+\[
+\left(a - \frac{b}{30}\right) \left(\frac{2}{5}a - \frac{b}{280}\right)
+\]
+\end{example}
+Здесь применяются вариационные методы.
+
+\begin{enumerate}
+\item Нужно подобрать функцию
+\item Составить экстремум функции
+\item Решить задачу
+\end{enumerate}
+
+\begin{example}{Найти экстремум функционала}
+
+\[
+I(y(x), z(x)) = \int\limits_0^{\frac{\pi}{2}} (y'^2 + z'^2 + 2 y z)\, dx
+\]
+
+\begin{align*}
+y(0) &= 0\\
+y\left(\frac{\pi}{2}\right) &= 1\\
+z(0) &= 0\\
+z\left(\frac{\pi}{2}\right) &= -1
+\end{align*}
+
+Система уравнений Эйлера имеет вид
+\[
+\begin{cases}
+F_y- \der{}{x}{} F_y' = 0\\
+F_z - \der{}{y}{} F_z' = 0
+\end{cases}
+\]
+
+\[
+\begin{cases}
+z = y''\\
+y - z'' = 0
+\end{cases}
+\]
+
+\[
+y = C_1 e^x + C_2 e^{-x} C_3 \cos x + C_4 \sin x
+\]
+Решение
+\[
+\begin{cases}
+y = \sin x\\
+z = - \sin x
+\end{cases}
+\]
+\end{example}
+
+\begin{example}{Исследовать на экстремум функционал}
+
+\[
+I(y,z) = \int\limits_0^1 (y'^2 + z'^2)\, dx
+\]
+Начальные условия
+\begin{align*}
+&y(0) = 0 \quad y(1) = 1\\
+&z(0) = 0 \quad z(1) = 2
+\end{align*}
+
+\begin{align*}
+&y'' = 0\\
+&z'' = 0
+\end{align*}
+
+\[C_1 = 1 \quad C_3 = 2\]
+
+\[
+\begin{cases}
+y = x\\
+z = 2 x
+\end{cases}
+\]
+Получили прямую
+
+Исследуем на экстремумы
+\begin{align*}
+&F_{y'y'} = 2 \quad F_{y'z'} = 0\\
+&F_{z'y'}=0 \quad F_{z'z'} = 2
+\end{align*}
+
+Усиленное условие Лежандра выполняется
+
+\[ 
+\begin{vmatrix} 
+ 2& 0 \\
+0& 2
+\end{vmatrix} = 4 > 0
+\]
+\end{example}
+\begin{example}{Исследовать на экстремум функционал}
+
+\[
+I(y,z) = \int\limits_0^1 (y'^2 +z'^2 + 4 z)\, dz
+\]
+
+Начальные условия
+\begin{align*}
+&y(0) = 0 \quad y(1) = 1\\
+&z(0) = 0 \quad z(1) = 0
+\end{align*}
+
+\[
+\begin{cases}
+y = x\\
+z = x^2 - x
+\end{cases}
+\]
+
+\[
+\begin{vmatrix} 
+ 2& 0 \\
+0& 2
+\end{vmatrix} = 4 > 0
+\]
+\end{example}
+
+\begin{example}{Исследовать на экстремум функционал}
+\[
+I(y) = \int\limits_0^2 (e^{y'} + 3)\, dx
+\]
+\end{example}

@@ -1,0 +1,75 @@
+\setcounter{equation}{0}
+При решении сложной задачи естественно стремиться свести её решение к решению более простых задач. С этой целью представим решение общей краевой задачи в виде суммы решений ряда частичных краевых задач.
+
+Пусть $u_i(x, t) \quad (i = 1, 2, \ldots, n)$ -- функции, удовлетворяющие уравнениям
+\begin{equation}
+	\derp{u_i}{t}{2} = a^2 \derp{u_i}{x}{2} + f^i(x, t)
+	\label{equ:Reduction1}
+\end{equation}
+при $0 < x < l, t > 0$ и дополнительным условиям
+\begin{equation}
+	\left.
+	\begin{aligned}
+		u_i(0, t) &= \mu_1^i(t),\\
+		u_i(l, t) &= \mu_2^i(t);\\
+		u_i (x, 0) & = \varphi^i(x),\\
+		\derp{u_i}{t}{} (x, 0) &=\psi^i (x).
+	\end{aligned}	
+	\right\}
+	\label{equ:Reduction2}
+\end{equation}
+Очевидно, что имеет место суперпозиция решений, т.е. функция
+\begin{equation}
+	u^{(0)}(x, t) = \sum\limits_{i = 1}^n u_i (x, t)
+	\label{equ:Reduction3}
+\end{equation}
+удовлетворяет аналогичному уравнению с правой частью
+\begin{equation}
+	f^{(0)} (x, t) = \sum\limits_{i = 1}^n f^i (x, t)
+	\label{equ:Reduction4}
+\end{equation}
+и дополнительным условиям, правые части которых суть функции
+\begin{equation}
+	\left.
+	\begin{aligned}
+		\mu_k^{(0)} = \sum\limits_{i = 1}^n \mu_k^i \quad (t) (l = 1, 2),\\
+		\varphi^{(0)} (x) = \sum\limits_{i = 1}^n \varphi^i (x),\\
+		\psi^{(0)} (x) = \sum\limits_{i = 1}^n \psi^i (x).
+	\end{aligned}
+	\right\}
+	\label{equ:Reduction5}
+\end{equation}
+Указанный принцип суперпозиции относится, очевидно, не только к данной задаче, но и к любому линейному уравнению с линейными дополнительными условиями. \\
+
+Решение общей краевой задачи 
+\begin{equation}
+	\left.
+	\begin{aligned}
+		u_{tt} = a^2 u_{xx} + f(x, y)\\
+		(0 < x < l, t > 0);\\
+		u(0, t) = \mu_1 (t),\\
+		u(l, t) = \mu_2 (t);\\
+		u(x, 0) = \varphi(x),\\
+		u_t(x, 0) = \psi (x)
+	\end{aligned}
+	\right\}
+	\label{equ:Reduction6}
+\end{equation}
+может быть представлено в виде суммы 
+\[
+	u(x, t) = u_1(x, t) + u_2 (x, t) + u_3 (x, t) + u_4 (x, t)
+\]
+где $u_1, u_2, u_3, u_4,$ -- решения следующих частных краевых задач:
+\begin{equation}
+	\left.
+	\begin{aligned}
+		u_1(0, t) &= 0, &u_2(0, t) &= \mu_1 (t), &u_3(0, t) &= 0,  &u_4(0, t) &= 0,\\
+		u_1(l, t) &= 0; &u_2(l, t) &= 0; &u_3(l, t) &= \mu_2(t);  &u_4(l, t) &= 0;\\
+		u_1(x, 0) &= \varphi(x), &u_2(x, 0) &= 0, &u_3(x, 0) &= 0,  &u_4(x, 0) &= 0,\\
+		u_{1t}(x, 0) &= \psi(x); &u_{2t}(x, 0) &= 0; &u_{3t}(x, 0) &= 0;  &u_{4t}(x, 0) &= 0;\\
+	\end{aligned}
+	\right\}
+	\label{equ:Reduction6}
+\end{equation}
+
+Аналогичная редукция может быть произведена и для предельных случаев общей краевой задачи.

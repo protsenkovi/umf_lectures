@@ -1,0 +1,174 @@
+\setcounter{equation}{0}
+Однородная краевая задача для уравнения теплопроводности на отрезке:
+\begin{equation}
+	\derp{u}{t}{} = a^2 \derp{u}{x}{2} + f(x, t), \quad (0 < x <l, t > 0)
+	\label{equ:HeatEqu}
+\end{equation}
+с начальным условием 
+\begin{equation}
+	u(x, 0) = \varphi(x), \quad (0 \leqslant x \leqslant l)
+	\label{equ:HeatStartCond}
+\end{equation}
+и граничным условиям 
+\begin{equation}
+	\left.
+	\begin{aligned}
+		u(0, t) &= \mu_1 (t),\\
+		u(l, t) &= \mu_2 (t)
+	\end{aligned}
+	\right\} \quad
+	(t \geqslant 0).
+	\label{equ:HeatBorderCond}
+\end{equation}
+
+Изучение общей первой краевой задачи начнём с решения следующей простейшей задачи $I$:\\
+	\textit{найти непрерывное в замкнутой области $(0 \leqslant x \leqslant l, 0 \leqslant t \leqslant T)$ решение однородного уравнения}
+
+\begin{equation}
+	\derp{u}{t}{} = a^2 \derp{u}{x}{2}, \qquad 0 < x < l,\quad  0 < t \leqslant T,
+	\label{equ:equHeatEquSimp}
+\end{equation}
+\textit{удовлетворяющее начальному условию}
+\begin{equation}
+	u(x, 0) = \varphi (x), \quad 0 \leqslant x \leqslant l
+	\label{equ:equHeatEquSimpStartCond}
+\end{equation}
+\textit{и однородным граничным условиям}
+\begin{equation}
+	u(0, t) = 0, \quad u(l, t) = 0, \quad 0 \leqslant t \leqslant T.
+	\label{equ:equHeatEquSimpBorderCond}
+\end{equation}
+
+Для решения этой задачи рассмотрим, как принято в методе разделения переменных, сначала основную вспомогательную задачу:\\
+\textit{найти решение уравнения}
+\[
+	u_t = a^2 u_{xx},
+\]
+не равное тождественно нулю, удовлетворяющее однородным граничным условиям
+\begin{equation}
+	u(0, t) = 0, \quad u(l, t) = 0 
+	\label{equ:equHeatEqu2Border}
+\end{equation}
+\textit{и представимое в виде}
+\begin{equation}
+	u(x, t) = X(x) T(t),
+	\label{equ:equHeatEquFourierView}
+\end{equation}
+\textit{где $X(x)$ -- функция только переменного $x$, $T(t)$ -- функция только переменного $t$.}
+
+Подставляя предполагаемую форму решения \eqref{equ:equHeatEquFourierView} в уравнение \eqref{equ:equHeatEquSimp}  и производя деление обеих частей равенства на $a^2 X T$, получим: 
+\begin{equation}
+	\frac{1}{a^2} \frac{T'}{T} = \frac{X''}{X} = - \lambda
+	\label{equ:equHeatEquFourierView}
+\end{equation}
+где $\lambda = const$, так как левая часть равенства зависит только от $t$, а правая -- только от $x$.
+Отсюда следует, что
+\begin{gather}
+	X'' + \lambda X = 0
+	\label{equ:equHeat1}\\
+	T' + a^2 \lambda T = 0
+	\label{equ:equHeat2}
+\end{gather}
+
+Граничные условия \eqref{equ:equHeatEqu2Border} дают:\\
+\begin{equation}
+	X(0) = 0, \quad X(l) = 0.
+	\label{equ:equHeat3}
+\end{equation}
+
+Таким образом, для определения функции $X(x)$ мы получили задачу о собственных значениях (задачу Штурма --- Лиувилля)
+\begin{equation}
+	X'' + \lambda X =0, \quad X(0) = 0, X(l) = 0,
+	\label{equ:equHeatShturm}
+\end{equation}
+исследованную при решении уравнения колебаний. При этом было показано, что только для значений параметра $\lambda$, равных 
+\[
+	\lambda_n = \left(\frac{\pi n}{l} \right)^2 \quad (n = 1, 2, 3, \ldots),
+\]
+существуют нетривиальные решения уравнения \eqref{equ:equHeatEquFourierView}, равные
+\begin{equation}
+	X_n(x) = \sin \frac{\pi n}{l} x.
+	\label{equ:equHeat4}
+\end{equation}
+Этим значениям $\lambda_n$ соответствуют решения уравния \eqref{equ:equHeat2}
+\[
+	T_n(t) = C_n e^{-a^2 \lambda_n t},
+\]
+где $C_n$ -- не определённые коэффициенты.
+
+Возвращаясь к основной вспомогательной задаче, видим, что функции
+\[
+	u_n(x, t) = X_n(x) T_n(t) = C_n e^{-a^2 \lambda_n t} \sin \frac{\pi n}{l} x,
+\]
+являются частными решениями уравнения \eqref{equ:equHeatEquSimp}, удовлетворяющими нулевым граничным условиям. \\
+
+
+Обратимся теперь к решению задачи (I). Составим формально ряд
+\begin{equation}
+	u(x,  t) = \sum\limits_{n = 1}^{\infty} C_n e^{-a^2 \lambda_n t} \sin \frac{\pi n}{l} x.
+	\label{equ:equHeatRow1}
+\end{equation}
+Функция $u(x, t)$ удовлетворяет граничным условиям, так как им удовлетворяют все члены ряда. Требуя выполнения начальных условий, получаем:
+\begin{equation}
+	\varphi(x) = u(x, 0) = \sum\limits_{n = 1}^{\infty} C_n \sin \frac{\pi n}{l} x,
+	\label{equ:equHeatRow2}
+\end{equation}
+т.е. $C_n$ являются коэффициентами Фурье функции $\varphi(x)$ при разложении её в ряд по синусам на интервале $(0, l)$:
+\begin{equation}
+	C_n = \varphi_n = \frac{2}{l} \int\limits_0^l \varphi(\xi) \sin \frac{\pi n}{l} \xi \, d\xi.
+	\label{equ:equHeatFRow3}
+\end{equation}
+Рассмотрим теперь ряд \eqref{equ:equHeatRow1} с коэффициентам $C_n$, определяемыми по формуле \eqref{equ:equHeatFRow3}, и покажем, что этот ряд удовлетворяет всем условиям задачи (I). Для этого надо доказать, что функция $u(x, t)$, определяемая рядом \eqref{equ:equHeatRow1}, дифференциируема, удовлетворяет уравнению в области $0 < x < l, \quad t > 0$ и непрерывна в точках границы этой области (при $t = 0, x = 0, x = l$).
+
+Так как уравнение \eqref{equ:equHeatEquSimp} линейно, то в силу принципа суперпозиции ряд, составленный из частных решений, также будет решением, если он сходится и его можно дифференциировать почленно дважды по $x$ м один раз по $t$. Покажем, что при $t \geqslant t > 0$ ($t$ -- любое вспомогательное число) ряды производных
+\[
+	\sum\limits_{n = 1}^{\infty} \derp{u_n}{t}{} \quad \mbox{и} \quad \sum\limits_{n = 1}^{\infty} \derp{u_n}{x}{2}
+\] 
+сходится равномерно. В самом деле,
+\[
+	\abs{\derp{u_n}{t}{}} = \abs{- C_n \left(\frac{\pi}{l}\right)^2 a^2 n^2 e^{-\left(\frac{\pi n}{l}\right)^2 a^2 t} \sin \frac{\pi n}{l} x} < \abs{C_n} \left(\frac{\pi}{l}\right)^2 \cdot a^2 n^2 e^{-\left(\frac{\pi n}{l}\right)^2 a^2 t}
+\]
+В дальнейшем будут сформулированы дополнительные требования, которым должна удовлетворять фукнция $\varphi(x)$. Предположим сначала, что $\varphi(x)$ ограничена, $\abs{\varphi(x)} < M$; тогда
+\[
+	\abs{C_n} = \abs{\frac{2}{l}} \abs{\int_0^l \varphi(\xi) \sin \frac{\pi n}{l}\xi\, d\xi} < 2M
+\]
+
+откуда следует, что 
+\[
+	\abs{\derp{u_n}{t}{}} < 2 M \left(\frac{\pi}{l}\right)^2 a^2 n^2 e^{-\left(\frac{\pi n}{l}\right)^2 a^2 \bar t} \quad \mbox{для}\quad t \geqslant \bar t
+\]
+и аналогично
+\[
+	\abs{\derp{u_n}{x}{2}} < 2 M \left(\frac{\pi}{l}\right)^2 a^2 n^2 e^{-\left(\frac{\pi n}{l}\right)^2 a^2 \bar t} \quad \mbox{для}\quad t \geqslant \bar t.
+\]
+
+Вообще
+\[
+	\abs{\frac{\partial^{k+1} u_n}{\partial t^k\,\partial x^l}} < 2 M \left(\frac{\pi}{l}\right)^{2k + l} \cdot n^{2k + l} \cdot a^{2k} \cdot  e^{-\left(\frac{\pi n}{l}\right)^2 a^2 \bar t}\quad \mbox{для}\quad t \geqslant \bar t.
+\]
+
+Исследуем сходимость мажорантного ряда $\sum\limits_{n = 1}^{\infty} \alpha_n$, где 
+\begin{equation}
+	\alpha_n = N n^q e^{-\left(\frac{\pi n}{l}\right)^2 a^2 \bar t}.
+	\label{equ:equHeatFR1}
+\end{equation}
+
+По \href{http://clck.ru/W/E9fB}{признаку Далабмера} ряд сходится, так как
+\[
+	\lim\limits_{n \to \infty} \abs{\frac{\alpha_{n + 1}}{\alpha_n}} = \lim\limits_{n \to \infty} \frac{(n + 1)^q}{n^q} \frac{e^{-\left(\frac{\pi}{l}\right)^2 a^2 (n^2 + 2 n + 1) \bar t}}{e^{-\left(\frac{\pi}{l}\right)^2 a^2 n^2 \bar t}} = \lim\limits_{n \to \infty} \left( 1 + \frac{1}{n}\right)^q e^{-\left(\frac{\pi}{l}\right)^2 a^2 (2n + 1) \bar t} = 0.
+\]
+Отсюда вытекает возможность почленного дифференциирования ряда \eqref{equ:equHeatRow1} любое число раз в области $t \geqslant \bar t > 0$. Далее, пользуясь принципом суперпозиции, заключаем, что функция определённая этим рядом, удовлетворяет уравнению \eqref{equ:equHeatEquSimp}. В силу произвольности  $\bar t$ это имеет место для всех $t > 0$. Тем самым доказано, что при $t > 0$ ряд \eqref{equ:equHeatRow1} представляет функцию, дифференциируемую нужное число раз и удовлетворяющую уравнению \eqref{equ:equHeatEquSimp}.
+
+\textit{Если функция $\varphi(x)$ непрерывная, имеет кусочно-непрерывную производную и удовлетворяет условиям $\varphi(0)=0$ и $\varphi(l) = 0$, от ряд \eqref{equ:equHeatRow1}}
+\[
+	u(x,  t) = \sum\limits_{n = 1}^{\infty} C_n e^{-a^2 \lambda_n t} \sin \frac{\pi n}{l} x.
+\]
+\textit{определяет \href{http://5z8.info/enriched-uranium-supply_b4w8xn_illegal-guns-for-sale}{непрерывную функцию} при $t \geqslant 0$.}
+
+Действительно, из неравенства 
+\[
+	\abs{u_n(x, t)} < \abs{C_n} \quad (\mbox{при} t \geqslant 0, 0 \leqslant x \leqslant l)
+\]
+сразу же следует равномерная сходимость ряда \eqref{equ:equHeatRow1} при $t \geqslant 0$, $0 \leqslant x \leqslant l$, что и доказывает справедливость сделанного выше утверждения, если учесть, что для непрерывной и кусочно-гладкой функции $\varphi(x)$ ряд из модулей коэффициентов Фурье сходится, если $\varphi(0) = \varphi(l) = 0$.\\
+
+Итак, задача нахождения решения прямой краевой задачи для однородного уравнения с нулевыми граничными условиями и непрерывным, кусочно-гладким начальным условием решена полностью.

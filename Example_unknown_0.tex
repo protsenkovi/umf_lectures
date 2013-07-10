@@ -1,0 +1,13 @@
+Рассмотрим задачу 
+\[ \derp{u}{x}{2} + \derp{u}{y}{2} = -1 \]
+
+\[ \abs{x} \leq 1 \]
+\[ \abs{y} \leq 1 \]
+
+\[ I[u(x, y)] = \iint\limits_D \left\{ \left(\derp{u}{x}{} \right)^2 + \left(\derp{u}{y}{} \right)^2 - 2 u \right\}\, dx dy \]
+
+из метода фурье для уравнения теплопроводности
+\[u(x, t) = \sum C_n e^{- \left( \frac{\pi n}{l} a\right)^2 t} \sin \frac{\pi n}{l} x\]
+	\[C_n = \frac{2}{l} \int\limits_{0}^{1} f (\xi) \sin \frac{\pi n}{l} \xi d \xi \leqslant \frac{2}{l} k \quad \abs{f(x)} < k\]
+	\[\derp{u}{t}{} = - \sum C_n \left( \frac{\pi n}{l} a\right)^2 e^{- \left( \frac{\pi n}{l} a\right)^2 t} \sin \frac{\pi n}{l} x\]
+	\[\derp{u}{x}{2} = - \sum C_n \left( \frac{\pi n}{l} a\right)^2 e^{- \left( \frac{\pi n}{l} a\right)^2 t} \sin \frac{\pi n}{l} x\]

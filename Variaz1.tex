@@ -1,0 +1,66 @@
+Предположим,что исходная кривая $y = f(x)$. И мы данную кривую проварьируем, то есть рассмотрим множество кривых. Данное множество можно описать одним уравнением -- $\tilde y (x, \alpha) = y(x) + \alpha \eta (x)$, где $\eta \in C_1 \quad \eta(a) = \eta(b) = 0$. $\eta$ может принимать любой знак. Необходимо рассмотреть функционал на параметрическом семействе кривых.
+\[
+	I(\tilde y(x, \alpha)) = \int\limits_a^b F(x, \tilde y (x, \alpha), \tilde y' (x, \alpha)\, dx
+\]
+После взятия интеграла получаем
+\[
+	I[\tilde (x, \alpha)] = \tilde I( \alpha)
+\]
+а необходимое условие экстремума функционала записывается так
+\begin{equation} \delta I = \lim\limits_{\alpha \to 0} \derp{\tilde I}{\alpha}{} = 0 \label{}\end{equation}
+такой предел называется \textit{первой вариацией функционала}.
+Продифференциировали $I$ по $\alpha$\\
+\[
+	\derp{\tilde I}{\alpha}{} = \int\limits_a^b \left(\derp{F}{\tilde y}{}  \eta (x) + \derp{F}{y'}{} \eta'(x) \right) dx = 0
+\]
+Вспомним свойство интегралов. Первое слагаемое оставим без изменений, а второе возьмём по частям.
+\[
+	\int\limits_a^b \derp{F}{y}{} \eta(x) dx + \derp{F}{y'}{} \eta(x) |_a^b - \int\limits_a^b \derp{F}{y'}{} \eta (x) dx = 0
+\]
+Таким образом на концах отрезком функция обращается в 0.
+В итоге
+\[
+	\delta I = \int\limits_a^b \left(\derp{F}{y}{} - \der{}{y'}{} \derp{F}{x}{} \right)
+\]
+В силу произвольности $\eta(x)$ окончательное необходимое условие записывается в виде уравнения Эйлера. 
+\[
+	\der{}{x}{} \derp{F}{y'}{} - \derp{F}{y}{} = 0
+\]
+\subsection{Вариационные задачи с кратными интегралами.}
+
+Функция $\varphi$ определена на области.
+\begin{multline*}
+	I(\varphi(x, y)) = \iint\limits_D F(x, y, \varphi(x, y), \derp{\varphi}{x}{}, \derp{\varphi}{y}{})\, dx dy + \int\limits_\gamma G(\varphi (x, y), \varphi' (x, y)) d \gamma =\\= \iint\limits_D \left( \left(\derp{\varphi}{x}{} \right)^2 + \left(\derp{\varphi}{y}{} \right)^2 - c \varphi^2 - 2 f \varphi \right)\, dx dy + \int\limits_\gamma ((\delta \varphi^2 - c \varphi))
+\end{multline*}
+Множество поверхностей, все выходят из $\gamma$.
+
+\begin{multline*}
+	I [ \tilde \varphi (x, y)] = \iint\limits_D \left\{ \left[ \derp{}{x}{} (\varphi + \alpha \eta)\right]^2 + \left[ \derp{}{y}{} (\varphi + \alpha \eta)\right]^2 - C [\varphi + \alpha \eta]^2 + 2 f (\varphi + \alpha \eta)\right\}\, dx dy +\\+ \int\limits_\gamma \left[ \delta (\varphi + \alpha \eta) - c c (\varphi + \alpha \eta)\right] d \gamma 
+\end{multline*}
+
+\[
+	 \derp{I}{\alpha}{} = \iint\limits_D \left\{ 2 \left[ \derp{\varphi}{x}{} + \alpha \derp{\eta}{x}{}\right] \derp{\eta}{x}{} + 2 ? \right\}\, dx dy 
+\]
+
+\[
+	 \delta I \lim\limits_{\alpha \to 0} \derp{\tilde I}{\alpha}{} = 2 \iint\limits_D \left\{ \derp{\psi}{x}{} \derp{\eta}{x}{} + \derp{\varphi}{y}{} \derp{\eta}{y}{} - c \varphi \eta - f \eta \right\} + \int\limits_\gamma (2 \delta \varphi \eta - c \eta)\, d \gamma = 0 
+\]
+\[
+	\delta I = 2 \iint\limits_D \left\{ \derp{}{x}{} \left[ \derp{\varphi}{x}{} \eta \right] \derp{\varphi}{x}{2} \eta + \derp{}{y}{} \left(\derp{\varphi}{y}{} \eta \right) - \derp{\varphi}{y}{2} \eta - c \varphi \eta - f \eta \right\}\, dx dy + \int\limits_\gamma [ 2 \delta [ \xi \eta - c \eta], d \gamma 
+\]
+
+%\[
+%	 2 \iint\limits_D \left\{ \derp{}{x}{} \left[ \derp{\varphi}{x}{} \eta\right] - \right\}
+%\]
+
+Первая вариация должна быть равна 0 в силу первого условия экстремума.
+
+\begin{align}
+   \derp{\varphi}{x}{2} + \derp{\varphi}{y}{2} + c \varphi + f = 0\\
+   \derp{\varphi}{n}{} \delta \varphi - \frac{c}{2} = 0 |_\gamma
+\end{align}
+
+Третья краевая задача для эллиптического уравнения.
+
+Решить задачу и минимизировать функционал - две эквивалентные задачи.
+На практике как правило краевые задачи аналитически не решаются, а применяются численные методы, так как минимизировать функционал проще.

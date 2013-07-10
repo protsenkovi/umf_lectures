@@ -1,0 +1,157 @@
+\setcounter{equation}{0}
+Метод разделения переменных или метод Фурье, является одним из наиболее распространённых методов решения уравнений с частными производными. Изложение этого метода проведём для задачи о колебаниях струны, закреплённой на концах.\\
+\begin{equation}
+	\derp{u}{t}{2} = a^2\, \derp{u}{x}{2}
+	\label{equ:equCauchyWaveFourier}
+\end{equation}
+Начальные условия: 
+\begin{align}
+	u(x, 0) = f(x)\\
+	u_t(x, 0) = g (x)
+	\label{equ:equCauchyWaveFourierN}
+\end{align}
+Граничные условия:
+\begin{align}
+	u(0, t) = 0, \quad u(l, t) = 0
+	\label{equ:equCauchyWaveFourierGr}
+\end{align}
+Уравнение \eqref{equ:equCauchyWaveFourier} линейно и однородно, поэтому сумма частных решений также является решением этого уравнения. Имея достаточно большое количество частных решений, можно попытаться при помощи суммирования их с некоторыми коэффициентами найти искомое решение. \\
+
+Поставим основную вспомогательную задачу:\\
+\textit{найти решение уравнения \eqref{equ:equCauchyWaveFourier} не тождественное нулю, удовлетворяющее однородным граничным условиям}
+\begin{align*}
+		u(0, t) = 0\\
+		u(l, t) = 0
+\end{align*}
+\textit{и представимое в виде произведения }
+\begin{equation}
+	u(x,t)= X(x) T(t)
+	\label{equ:equWaveFourierSolveView}
+\end{equation}
+\textit{где $X(x)$ -- функция только переменного $x$, $T(t)$ -- функция только переменного $t$.}\\
+
+Подставляя предполагаемую форму решения \eqref{equ:equWaveFourierSolveView} в уравнение \eqref{equ:equCauchyWaveFourier}, получим:
+\[
+	X''T = \frac{1}{a^2} T''X
+\]
+после деления на $XT$
+\[
+	\frac{X''}{X} = \frac{1}{a^2} \frac{T''}{T} = - k^2\
+\]
+Из этого соотношения получаем обыкновенные дифференциальные уравнения для определения функций $X(x)$ и $T(x)$
+\begin{alignat}{2} \label{equ:equCauchy1}
+	X''(x) + k X(x) &= 0, \quad &X(x) &\not\equiv 0\\
+	T''(t) + a^2 k T(t) &= 0, \quad &T(t) &\not\equiv 0
+	\label{equ:equCauchy2}
+\end{alignat}
+
+Приходим к задаче о собственных значениях (задаче \textit{Штурма---Лиувилля}).
+\[
+	\begin{cases}
+		X'' + kX = 0\\
+		X(0) = X(l) = 0
+	\end{cases}
+\]
+При $k < 0$ и $k = 0$ задача не имеет нетривиальных решений. Это можно проверить найдя решения этих двух случаев, общий вид которых $X(x) = C_1 e^{\sqrt{-k}x} + C_2 e^{-\sqrt{-k}x}$ и $X(x) = C_1 x + C_2$ соответственно.
+Рассмотрим случай при $k > 0$.
+
+Общее решение ищется в виде
+\[
+	X_k = C_{1k}^* \cos kx + C_{2k}^* \sin k x
+\]
+Граничные уловия дают:
+\[
+	X(0) = 0 \Rightarrow C_1^* = 0
+\]
+\[
+	X(l) = 0 \Rightarrow C_{2k}^*\sin k l = 0
+\]
+\[
+	k l=\pi n \Rightarrow k_n=\pi\frac{n}{l}
+\]
+$k_n$ -- cобственные числа.
+
+Этим собственным числам соответствую собственные функции ($n \in N$)
+\[
+	X_n= C_{2n}^* \sin \frac{\pi n}{l} x
+\]
+Этим же значениям $k_n$ соответствуют решения уравнения \eqref{equ:equCauchy2}
+\[
+	T_n = A_k\cos \frac{a\pi k}{l} t + B_k \sin\frac{a\pi k}{l} t,
+\] 
+где $A_k$ и $B_k$ -- произвольные постоянные.
+\begin{align*}
+	&A_n C_{2n}^* =C_{1n}\\
+	&B_n C_{2n}^* = C_{2n}
+\end{align*}
+Функции
+\[
+	u_n (x, t) = \left(C_{1n} \cos \frac{a \pi n}{l} t + C_{2n} \sin \frac{a \pi n}{l} t \right) \sin\frac{\pi n}{l} x
+\]
+являются частными решениями уравнения \eqref{equ:equCauchyWaveFourier}, удовлетворяющими граничным условиям \eqref{equ:equCauchyWaveFourierGr}. Эти решения могут удовлетворить начальным условиям нашей исходной задачи только для частных случаев начальных функций $f(x)$ и $g(x)$. \\
+
+В силу линейности и однородности уравнения \eqref{equ:equCauchyWaveFourier} сумма частных решений
+\begin{equation}
+	u(x, t) = \sum\limits_{n = 1}^{\infty} u_n (x, t) = \sum\limits_{n = 1}^{\infty} \left(C_{1n} \cos \frac{a \pi n}{l} t + C_{2n} \sin \frac{a \pi n}{l} t \right) \sin\frac{\pi n}{l} x
+	\label{equ:equUniSolveFourWave}
+\end{equation}
+также удовлетворяет этому уравнению и граничным условиям. 
+
+Начальные условия позволяют определить $C_{1n}$ и $C_{2n}$. Потребуем, чтобы функция \eqref{equ:equUniSolveFourWave} удовлетворяла условиям \eqref{equ:equCauchyWaveFourierN}:
+\begin{equation}
+	\left.
+	\begin{aligned}
+		&u(x, 0) = f(x) = \sum\limits_{n = 1}^{\infty}  u_n(x, 0) = \sum\limits_{n = 1}^{\infty} C_{1n} \sin \frac{\pi n}{l} \, x,\\
+		&u_t(x, 0) = g(x) = \sum\limits_{n = 1}^{\infty}  \derp{u_n}{t}{}(x, 0) = \sum\limits_{n = 1}^{\infty} \frac{\pi n}{l} a C_{2n} \sin \frac{\pi n}{l} \, x.
+	\end{aligned}
+	\right\}
+	\label{equ:equwaveFourier1}
+\end{equation}
+
+Из теории рядов Фурье известно, что произвольная кусочно-непрерывная и кусочно-дифференциируемая функция $\varphi(x)$, заданная в промежутке $0 \leqslant x \leqslant l$, разлагается в ряд Фурье
+\[
+	\varphi(x) = \sum\limits_{n = 1}^\infty b_n \sin \frac{\pi n}{l} x,
+\]
+где 
+\[
+	b_n = \frac{2}{l} \int\limits_0^l f(\xi) \sin \frac{\pi n}{l}\xi \, d\xi
+\]
+
+Найдём коэффициенты $C_{1n}$
+\[
+	 C_{1n} = \frac{2}{l} \int\limits_0^l f(x) \sin \frac{n \pi}{l} x\, dx
+\]
+Коэффициенты $C_{2n}$ находят из 2-го условия $\derp{u}{t}{} |_{t = 0} = g(x)$\\
+\[
+	g(x) = \left. \sum\limits_{n = 1}^{\infty}\left(C_{2n}\cos \frac{a \pi n}{l} t + C_{1n} \sin \frac{a \pi n}{l} t \right) \frac{a \pi n}{l} \sin \frac{\pi n}{l} x \right|_{t = 0}
+\]
+\[
+	g(x) = \sum\limits_{n = 1}^{\infty} C_{2n} \frac{a \pi n}{l} \sin \frac{\pi n}{l} x
+\]
+\[
+	\frac{2}{l} \int\limits_0^l g(x) \sin \frac{\pi n}{l} x dx = \frac{a \pi n}{l} C_{2n} 
+\]
+\[
+	C_{2n} = \frac{2}{a \pi n} \int\limits_0^l g(x) \sin \frac{\pi n}{l} x\, dx
+\]
+В итоге
+\begin{align*}
+	&C_{1n} = \frac{2}{l} \int\limits_0^l f(x) \sin \frac{n \pi}{l} x\, dx\\
+	&C_{2n} = \frac{2}{a \pi n} \int\limits_0^l g(x) \sin \frac{\pi n}{l} x\, dx
+\end{align*}\\
+Проверим, совпадает ли данное решение с решением Д'Аламбера.
+
+\[	
+	u(x, t) = \frac{f(x + at) + f(x - at)}{2} + \frac{1}{2a} \int\limits_{x - at}^{x + at} g(\xi)\, d \xi
+\]
+\[
+	f(x) = \sum\limits_{n = 1}^{\infty} C_{1n} \sin \frac{\pi n}{l} x \quad g(x) = \sum\limits_{n = 1}^{\infty} C_{2n} \frac{a \pi n}{l} \sin \frac{\pi n}{l} x\
+\]
+\begin{multline*}
+	u(x,t) = \frac{1}{2} \left[ \sum\limits_{n = 1}^{\infty} C_{1n} \sin \frac{\pi n}{l} (x - at) + \sum\limits_{n = 1}^{\infty} C_{1n} \sin \frac{\pi n}{l} (x + at)\right] + \frac{1}{2a} \int\limits_{x - at}^{x + at} \sum\limits_{n = 1}^{\infty} C_{2n} \frac{a \pi n}{l} \sin \frac{\pi n}{l} \xi \, d \xi =\\
+	= \sum\limits_{n = 1}^{\infty} C_{1n} \sin \frac{\pi n}{l} x \cos at \frac{\pi n}{l} +\frac{\pi}{a 2 l} \sum\limits_{n = 1}^{\infty} \int\limits_{x - at}^{x + at} C_{2n} n \sin\frac{\pi n}{l}\xi \, d \xi =\\
+	=\left. \sum\limits_{n = 1}^{\infty}C_{1n} \sin \frac{\pi n}{l} x \cos \frac{a \pi n}{l} t - \frac{a \pi}{a 2 l} \sum\limits_{n = 1}^{\infty} C_{2n} \frac{l}{\pi} \cos \frac{\pi n}{l} \right|_{x - at}^{x + at} =\\
+	= \sum\limits_{n = 1}^{\infty} \left( C_{1n}\sin \frac{\pi n}{l} x \cos\frac{a \pi n}{l} t + C_{2n} \sin \frac{\pi n}{l} x \cdot \sin \frac{\pi n a}{l} t\right) =\\
+	= \sum\limits_{n = 1}^{\infty} \left(C_{1n} \cos \frac{\pi n a}{l} t +  C_{2n} \sin \frac{\pi n a}{l} t \right) \sin \frac{\pi n}{l} x
+\end{multline*}
+Таким образом убедились в правильности решения.

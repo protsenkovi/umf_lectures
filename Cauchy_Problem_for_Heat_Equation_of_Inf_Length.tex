@@ -1,0 +1,77 @@
+Рассмотрим задачу Коши:
+\[
+	\derp{u}{t}{} = a^2 \derp{u}{x}{2}, \quad t > 0\\
+\]
+Начальное условие:
+\[
+	u(x, 0) = f(x)
+\]
+\[
+	t a^2 = T \Rightarrow \derp{u}{T}{} = \derp{u}{x}{2}
+\]
+Будем искать ограниченное нетривиальное решение уравнения методом разделения переменных, представимое в виде
+\[
+	u = X(x) Y(t) 
+\]
+Подставляя это выражение в исходное уравнение, получаем:
+\[
+	\quad \frac{X''}{X} = \frac{Y'}{Y} = - \lambda^2,
+\]
+где $\lambda^2$ -- параметр разделения.\\
+Частные решения находятся в таком виде
+\begin{align*}
+	&X(x) = \alpha (\lambda) \sin \lambda x + \beta (\lambda) \cos \lambda x\\
+	&Y(t) = e^{- \lambda^2 t}
+\end{align*}
+Общее решение
+\[u(x, t) = (\alpha (\lambda) \sin \lambda x + \beta(\lambda) \cos \lambda x) e^{-\lambda^2 t}\] 
+Запишем интегральный вид уравнения
+\[u(x, t) = \int\limits_{-\infty}^{+ \infty} (\alpha (\lambda) \sin \lambda x + \beta (\lambda) \cos \lambda x) e^{-\lambda^2 t} \,  d \lambda\]
+Из начальных условий найдём неизвестные
+\[u(x, 0) = \int\limits_{-\infty}^{+ \infty} (\alpha (\lambda) \sin \lambda x + \beta (\lambda) \cos \lambda x) d\lambda = f(x)\]
+\[\alpha (\lambda) = \frac{1}{2 \pi} \int\limits_{- \infty}^{+ \infty} f (\xi) \sin \lambda \xi \, d \xi\]
+\[\beta(\lambda) = \frac{1}{2 \pi} \int\limits_{- \infty}^{+ \infty} f (\xi) \cos \lambda \xi \, d \xi\]
+Подставляя в уравнение и меняя порядок интегрирования получим
+\[u(x,t) = \frac{1}{2 \pi} \iint\limits_{R^2} f(\xi) (\sin \lambda x \sin \lambda \xi + \cos \lambda x \cos \lambda \xi) e^{- \lambda^2 t} \, d \lambda d \xi \]
+\[u(x, t) = \frac{1}{2 \pi} \iint\limits_{R^2} f(\xi) \cos \lambda (x - \xi) e^{- \lambda^2 t} \, d \lambda  d \xi\]
+Произведём замену переменных
+\[
+	\int\limits_{- \infty}^{ + \infty} \cos \lambda (x - \xi) e^{- \lambda^2 t} \, d \lambda = \left[ 
+		\begin{tabular}{l}
+			$\lambda \sqrt{t} = \sigma$\\ 
+			$\lambda(x - \xi) = \sigma \omega$ 
+		\end{tabular} \right] 
+	= \int\limits_{- \infty}^{ + \infty} \cos \sigma \omega e^{- \sigma^2} \frac{d \sigma}{\sqrt{t}}
+\]
+Возьмём этот интаграл. Для удобства обозначим его как
+\[I(\omega) = \int\limits_{- \infty}^{ + \infty} \cos \omega \sigma e^{- \sigma^2} \, d \sigma\]
+Найдём производную по $\omega$
+\[\der{I}{\omega}{} = - \int\limits_{- \infty}^{ + \infty}\sigma \sin \sigma \omega e^{- \sigma^2} d \sigma - \frac{\omega}{2} \int\limits_{- \infty}^{ + \infty} \cos \sigma \omega e^{-\sigma^2} d \sigma\]
+\[I(\omega) = \sqrt{\pi} e^{- \frac{(x - \xi)^2}{4}} = \sqrt{\pi} e^{-\frac{\omega^2}{4}}\]
+В итоге получаем
+\[\int\limits_{- \infty}^{ + \infty} \cos (x - \xi) e^{- \lambda^2 t} \, d \lambda = \sqrt{\frac{\pi}{t}}  e^{- \frac{(x - \xi)^2}{4 t}}\]
+Подставим в общее решение
+\[u(x, t) = \sqrt{\frac{\pi}{t}} \int\limits_{- \infty}^{ + \infty} f(\xi) e^{- \frac{(x - \xi)^2}{4 t}} \, d \xi \cdot \frac{1}{2 \pi}\]
+Окончательное решение:\\
+\[u(x, t) = \frac{1}{2 a \sqrt{\pi t}} \int\limits_{- \infty}^{ + \infty} f(\xi)  e^{- \frac{(x - \xi)^2}{4 a^2 t}} \, d \xi\]\\
+Проверим, что это действительно решение:\\
+\[t=0 \quad \lim\limits_{t \downarrow 0} u(x, t) = \int\limits_{- \infty}^{ + \infty} f(\xi) \delta (\xi - x) \, d \xi = f(x)\]
+\[G(x, \xi, t) = \frac{e^{- \frac{(x - \xi)^2}{4 a^2 t}}}{2 a \sqrt{\pi t}}\]
+Продифференциируем функцию $G(x, \xi, t)$
+\begin{align*}
+	&\derp{G}{t}{} = \left( \frac{(x - \xi)^2}{2\cdot 4 a^3 t^2 \sqrt{t}} -\frac{1}{4 a t \sqrt{\pi t}}  \right) e^{- \frac{(x - \xi)^2}{4 a^2 t}}\\
+	&\derp{G}{x}{} = - \frac{\cancel 2 (x - \xi)^2}{4 a^2 t} \cdot \frac{1}{\cancel 2 a \sqrt{\pi t}} e^{- \frac{(x - \xi)^2}{4 a^2 t}}\\
+	&\derp{G}{x}{2} = \left(\frac{2 (x - \xi)^2}{16 a^5 \sqrt{\pi t} t^2} - \frac{1}{4 a^3 t \sqrt{\pi t}} \right) e^{- \frac{(x - \xi)^2}{4 a^2 t}}
+\end{align*}
+Функция удовлетворяет уравнению теплопроводности по переменным $(x, t)$.
+
+Итак, мы пришли к интегральному представлению искомого решения
+\[
+	u(x, t) = \int\limits_{- \infty}^{ + \infty} f(\xi)G(\xi, x, t) \, d \xi ,
+\]
+где
+\begin{equation}
+	G(x, \xi, t) = \frac{1}{2 a \sqrt{\pi t}} e^{- \frac{(x - \xi)^2}{4 a^2 t}}
+	\label{equ:koshiInftyG}
+\end{equation}
+			Функцию $G(x, \xi, t)$, определяемую формулой \eqref{equ:koshiInftyG}, часто называют фундаментальным решением уравнения теплопроводности.

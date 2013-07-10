@@ -1,0 +1,105 @@
+\setcounter{equation}{0}
+Метод Ритца служит для приближенного решения вариационной задачи. \href{http://reslib.com/book/Chislennie_metodi_analiza__Priblizhenie_funkcij__differencialjnie_i_integraljnie_uravneniya/321}{Описание.} %Зададимся несколькими функциями $f_1(x) , f_2(x) ,\ldots , f_n(x)$, каждая из которых удовлетворяет геометрическим граничным условиям задачи, и образум функцию $f(x)$ как сумму
+%\begin{equation}
+%	f(x) = C_1 f_1(x) +C_2 f_2(x)+...+C_n f_n(x).
+%	\label{equ:equRitz1}
+%\end{equation}
+%Если эту функцию подставить в формулу Рэлея
+%\begin{equation}
+%	w^2 = \frac{\int\limits_0^l E J(f'')^2\, dx}{\int\limits_0^l m f^2 \, dx},
+%	\label{equ:equRitzReley}
+%\end{equation}
+%то результат будет зависеть от конкретного выбора коэффициентов $C_1 , C_2 , …, C_n$.
+
+%Метод Ритца основан на простой идее: коэффициенты $C_1 , C_2 , …, C_n$ должны быть выбраны так, чтобы вычисление по \eqref{equ:equRitzReley} дало наименьшее значение для $w^2$. Из теоремы Рэлея вытекает, что такой выбор будет наилучшим (при данной системе функций $f_i$).
+
+%Условия минимума $w^2$ имеют вид
+%\[
+%	\derp{}{C_i}{}  \frac{\int\limits_0^l E J(f'')^2\, dx}{\int\limits_0^l m f^2 \, dx} = 0,
+%\]
+%где $i = 1, 2, \ldots, n$.
+%т.е.
+%\[
+%	\left[\derp{}{C_i}{} \int\limits_0^l E J(f'')^2\, dx\right] \left[\int\limits_0^l m f^2 \, dx \right] - \left[[\derp{}{C_i}{} \int\limits_0^l m f^2\, dx \right] \left[\int\limits_0^l E J(f'')^2 \, dx \right] = 0
+%\]
+
+%Разделив это уравнение на интеграл $\int\limits_0^l m f^2 \, dx$ и учитывая \eqref{equ:equRitzReley}, получим
+
+%\begin{equation}
+%	\derp{}{C_i}{} \int\limits_0^l \left[ EJ(f'')^2 - w^2 m f^2\right]\, dx = 0
+%	\label{equ:equRitzReley2}
+%\end{equation}
+
+%Уравнения \eqref{equ:equRitzReley2} однородны и линейны относительно $C_1 , C_2 , …, C_n$ и их число равно числу членов выражения \eqref{equ:equRitz1}. Приравнивая нулю определитель, составленный из коэффициентов при $C_1 , C_2 , …, C_n$, получим частотное уравнение. Это уравнение не только дает хорошее приближение для низшей частоты, но также определяет (хотя и с меньшей точностью) значения высших частот; при этом можно будет вычислить столько частот, сколько слагаемых принято в выражении \eqref{equ:equRitz1}.
+
+%Метод Ритца, как и метод Рэлея, позволяет решить задачу в случаях разрывных функций $EJ$ и $m$ и когда эти функции представлены различными аналитическими выражениями на различных участках.\\
+
+%Иногда та же идея используется в иной форме. Например, при исследовании поперечных колебаний турбинных лопаток задаются функцией $f(x) = ax^s$ (начало координат в закрепленном конце). Применяя затем формулу Рэлея \eqref{equ:equRitzReley}, получают частоту в виде зависимости от показателя степени $s$. Затем при помощи числовых расчетов определяют значение $s$, которому отвечает наименьшая частота. Это позволяет достаточно надежно определить как форму, так и частоту колебаний первого тона.\\
+
+\begin{example}{Найти решение с помощью метода Ритца}
+Подобрать полную систему линейно независимых функций $\varphi_1(x, y), \varphi_2(x, y), \ldots \varphi_n(x, y)$, удовлетворяющих граничному условию $\varphi_i|_\gamma = 0$ (все функции на граниче должны быть равны $0$).
+
+Чаще всего это тригонометрические или степенные функции. В нашем случае удобнее выбрать степенные: 
+\begin{align*}
+	(1 - x^2)(1 - y^2) = \varphi_1\\
+	(1 - x^2)(1 - y^2)x = \varphi_2
+\end{align*}
+Искомую функцию $u$ мы будем искать в виде ряда 
+\[
+	\sum\limits_{k = 1}^n C_k \varphi_k (x, y)
+\]
+где $C_k$ --- неизвестные константы.
+
+\begin{multline*}
+	\iint\limits_D \biggl\{ \left(\sum\limits_{k = 1}^n C_k \derp{\varphi_k}{x}{} \right)^2 + \left(\sum\limits_{k = 1}^n C_k \derp{\varphi_k}{y}{} \right)^2 - 2 \sum\limits_{k = 1}^n C_k \varphi_x(x, y) \biggl\}\, dx dy = \\
+	= \iint\limits_D \left\{ \sum_{k = 1}^n \sum_{k = 1}^n C_k C_m \derp{\varphi_k}{x}{} \derp{\varphi_m}{x}{} + \sum_{k = 1}^n \sum_{k = 1}^n C_k C_m \derp{\varphi_k}{y}{} \derp{\varphi_m}{y}{} - 2 \sum\limits_{k = 1}^n C_k \varphi_k (x, y) \right\}\, dx dy
+\end{multline*}
+Так как сумма конечная, меняем местами знаки суммы и интеграла:
+\[
+	\sum_{k = 1}^n \sum_{k = 1}^n C_k C_m \left[ \iint\limits_D \underset{a_{km}}{\left(\derp{\varphi_k}{x}{} \derp{\varphi_m}{x}{} + \derp{\varphi_k}{y}{} \derp{\varphi_m}{y}{} \right)}\, dx dy \right] - 2 \sum\limits_{k = 1}^n C_k \iint\limits_D \underset{b_k}{\varphi_k (x, y)}\, dx dy
+\]
+
+В итоге получили
+\[
+	I[u] =  \sum_{k = 1}^n \sum_{k = 1}^n C_k C_m a_{km} - 2 \sum\limits_{k = 1}^n C_k b_k
+\]
+Константы $C_1, C_2, \ldots, C_n$ --- должны быть подобраны так, чтобы функционал $I [C_1, C_2, \ldots, C_n]$ принимал минимальные значения.
+\[
+	\derp{I}{C_1}{} = 0 \quad \derp{I}{C_2}{} = 0 \quad \derp{I}{C_n}{} = 0
+\]
+В результате получаем СЛАУ:
+
+\[
+	\begin{matrix}
+	   a_{11} C_1 + a_{12} C_2 +\ldots +a_{1n}C_n = 2 b_1\\
+	   \hdotsfor{1}\\
+	   a_{n1} C_1 +a_{n2} C_2+ \ldots+ a_{nn}C_n = 2 b_n
+	\end{matrix}
+\]
+Пусть решение состоит из 1-го слагаемого:
+\[
+	u(x, y) = C_1 (1 - x^2)(1 - y^2)
+\]
+Требуется найти $C_1$:
+
+\begin{align*}
+	&\iint\limits_D \left\{ \left[C_1 (1 - y^2)(- 2 x) \right]^2 + \left[C_1 (1 - x^2)(-2y) \right]^2 - 2 C_1 (1 - x^2)(1 - y^2) \right\}\, dx dy =\\
+	&=4 C_1^2  \int\limits_{-1}^1 \int\limits_{-1}^1 \left[ x^2 (1 - y^2)^2 + y^2 (1- x^2)^2 \right]\, dx dy  - 2 C_1 \int\limits_{-1}^1 \int\limits_{-1}^1 (1 - x^2)(1 - y^2)\, dx dy =\\
+	&=8 C_1^2 \int\limits_{-1}^1 \left[x^2 \left(1 - \frac{2}{3} + \frac{1}{5} \right) + \frac{1}{5} \left(1 - 2 x^2 + x^4 \right)\right]\, dx - 4 C_1 \int\limits_{-1}^1  (1 - x^2) \left(1 - \frac{1}{3}\right) \, dx =\\
+	&=16 C_1^2 \left\{ \left(1 - \frac{2}{3} + \frac{1}{5} \right) \frac{x^3}{3} + \frac{1}{3} \left(x - \frac{2}{3} x^3 + \frac{1}{5} x^5 \right)\right\} \Bigg|_0^1 - 8 C_1 \left(x - \frac{x^3}{3} \right) \left(1 - \frac{1}{3}\right)\Bigg|_0^1 =\\
+	&=16 C_1^2 \left\{\frac{1}{3} \frac{8}{15} + \frac{1}{3} \frac{8}{15} \right\} - 8 C_1 \left(\frac{4}{9} \right)\\
+\end{align*}
+
+\[
+	\frac{16 \cdot 16}{3 \cdot 15} C_1^2 - \frac{32}{9} C_1
+\]
+
+\[
+	C_1 = \frac{5}{16}
+\]
+
+\[
+	u(x,y) = \frac{5}{16} (1 - x^2)(1 - y^2)
+\]
+Точность $1.5\%$.
+\end{example}

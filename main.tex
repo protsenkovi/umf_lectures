@@ -1,0 +1,233 @@
+\documentclass[12pt, a4paper]{article}
+
+% Вот это комментарий, он не будет показан в выходном файле. Он здесь очень нужен.
+\usepackage[redcolor]{derradeiro}
+
+
+%\title{Уравнения математической физики}
+\date{}
+\author{}
+
+
+\begin{document}
+\thispagestyle{empty}
+~
+\\[5cm]
+\pagecolor[rgb]{0.9,0.9,0.9}
+\begin{minipage}{12cm}
+\textcolor[rgb]{0,0,0}{\Huge
+\textbf{Уравнения математической физики}\\}
+{\color[rgb]{0,0,0}\hrule height 1.5pt}
+\end{minipage}
+\hfill
+\vfill
+\newpage
+\pagecolor{white}
+
+\tableofcontents
+
+\parindent=0pt
+\section{Вводные понятия и определения}
+	\subsection{Уравнения в частных производных 2-го порядка}\label{que:3}\label{que:6}
+		\input{Partial_Deriviation_Equations_of_2_order.tex} \newpage 
+
+	\subsection{Приведение линейного уравнения второго порядка к каноническому виду}\label{que:7}	
+		\input{Transformation_to_Canonical.tex} \newpage 	
+
+	\subsection{Система уравнений типа Ковалевской. Теорема Ковалевской.}
+		\input{Normal_From_Kovalevskoy_Theorem.tex} \newpage 
+
+	\subsection{Пример (теорема Ковалевской не работает)}
+		\input{Example_Kovalevskoy_Theorem_doesnt_works.tex} \newpage 
+
+	\subsection{Задача Штурма-Лиувилля}\label{que:15}	
+		\input{Problem_Shturm_Leuv.tex}
+	
+
+\section{Уравнения гиперболического типа.}
+	\subsection{Уравнение колебания струны}\label{que:1}
+		\input{Wave_Equation.tex} \newpage
+
+	\subsection{Задача Коши для волнового уравнения.}	\label{que:8}
+		\input{Cauchy_Problem_for_Wave_Equation.tex} \newpage
+
+	\subsection{Редукция общей краевой задачи}\label{que:12}
+		\input{Problem_Reduction.tex}\newpage
+
+	\subsection{Метод распространяющихся волн}
+		\subsubsection{Уравнение колебания бесконечной струны (Формула Даламбера)}
+			\input{Cauchy_Problem_for_Wave_Equation_Solve.tex} \newpage	
+
+		\subsubsection{Вывод уравнения Даламбера классическим способом}
+			\input{Nonordinary_Equation.tex} \newpage
+
+		\subsubsection{Полубесконечная струна и метод продолжений}\label{que:9}
+			\input{Example_Wave_Spread_Halfinf_String.tex}\newpage
+
+
+	\subsection{Метод Фурье для уравнения колебания струны} \label{que:10}
+		\input{Fourier_Method_For_Wave_Equation.tex} \newpage
+
+	\subsection{Метод Фурье для неоднородного уравнения колебания струны} \label{que:11}
+		\input{Fourier_Method_For_Wave_Equation_Nonord.tex} \newpage
+
+	\subsection{Пример некорректно поставленной задачи}
+		\input{Example_0.tex}\newpage
+
+	\subsection{Метод Римана решения волновых уравнений}
+		\input{Riman_Method.tex} \newpage 
+
+\section{Уравнения параболического типа.}
+	\subsection{Вывод уравнения теплопроводности}\label{que:2}
+		\input{Heat_Equation.tex} \newpage
+
+	\subsection{Метод Фурье для уравнения теплопроводности}\label{que:16}
+		\input{Fourier_Method_for_Heat_Equation.tex} \newpage
+
+	\subsection{Задача Коши для бесконечного стержня}\label{que:17}
+		\input{Cauchy_Problem_for_Heat_Equation_of_Inf_Length.tex} \newpage		
+
+	\subsection{Автомодельные решения задачи теплопроводности.}
+		\input{Self_Similar_Solutions_of_Heat_Equation.tex}	\newpage
+
+	\subsection{Задача теплопроводности в цилиндрической системе координат}
+		\input{Heat_Problem_in_Cylindrical_Coordinate_System.tex} \newpage
+
+\section{Уравнения эллиптического типа.}
+	\subsection{Вывод уравнения}
+		\input{Elliptic_PDE.tex} \newpage
+
+	\subsection{Метод Фурье в задачах эллиптического типа}
+		\input{Fourier_Method_for_Elliptic_Equations} 
+
+		\subsubsection{Первая краевая задача для круга}
+			\input{First_Problem_Circle_Elliptic.tex}
+
+		\subsubsection{Интеграл Пуассона}
+			\input{Poisson_Integral.tex}\newpage
+
+		\subsubsection{Задача Дирихле для прямоугольной области.}
+			\input{Dirihlet_Problem_for_Rectangle.tex} \newpage
+
+	\subsection{Устойчивость решения задачи Дирихле}\label{que:22}
+		\input{Dirihlet_Problem.tex} \newpage
+		
+	\subsection{Фундаментальное решение уравнения Лапласа}\label{que:20}
+		\input{Laplace_Solve.tex} \newpage
+
+	\subsection{Принцип максимума уравнения Лапласа}\label{que:21}
+		\input{Laplace_Max.tex} \newpage
+	
+	\subsection{Формулы Грина}\label{que:19}
+		\input{Greens_Method.tex}   \newpage
+
+	\subsection{Функция источника}
+			\input{Source_Function_Elliptic.tex}
+	
+		\subsubsection{Функция источника для уравнения $\Delta u = 0$ и её основные свойства.}
+			\input{Source_Function_Sphere.tex}
+
+		\subsubsection{Функция источника для круга} \label{que:24}
+			\input{Source_Function_Circle.tex} \newpage
+
+		\subsubsection{Функция источника для полупространства}
+			\input{Source_Function_Half_Spatial_Domain.tex} \newpage
+
+	%\subsection{Решение Пуассона задачи Дирихле}
+	%	\input{Poisson_Solve_Dirichlet_Problem.tex} \newpage
+
+	\subsection{Задача Неймана.}\label{que:23}
+		\input{Neumann_Problem_for_spatial_domain.tex} \newpage
+
+	\subsection{Третья краевая задача.}
+		\input{Third_Boundary_Value_Vroblem.tex} \newpage
+
+	\subsection{Теория потенциала}
+		\subsubsection{Общие понятия}
+			\input{Potential_Theory.tex} \newpage
+
+	\subsubsection{Примеры краевых задач}
+		\input{Example_Potential_Theory.tex} \newpage
+
+	%\subsection{Пример пример}
+		%\input{Example_unknown_0.tex} \newpage
+	%\subsection{Приближённые методы расчета колебаний}
+		%\input{Approx_Solving.tex}
+\section{Применение вариационных методов в решение задач математической физики}
+		%\input{Variaz1.tex}
+	\subsection{Вариационная формулировка краевых задач}\label{que:35}
+			\input{Variaz.tex} \newpage
+
+	\subsection{Метод Ритца}\label{que:36}
+			\input{Ritz_Method.tex} \newpage
+
+
+\section{Распространение волн в пространстве}
+
+	\subsection{Задача о колебании квадратной пластинки.}\label{que:14}
+		\input{Vibrating_Square_Membrane_Problem.tex} \newpage
+
+	\subsection{Задача о колебании круглой пластинки.}
+		\input{Vibrating_Circle_Membrane_Problem.tex} \newpage
+
+	
+\section{Специальные функции}
+	\subsection{Уравнение Бесселя. Функции Бесселя.}
+		\subsubsection{Уравнение Бесселя. Вывод функции Бесселя.}\label{que:31}
+			\input{Bessel.tex} 
+		\subsubsection{Ортогональность функций Бесселя}\label{que:32}
+			\input{Bessel_Ort.tex}\newpage
+	
+	\subsection{Полиномы Лежандра.}\label{que:27}
+		\input{Polynom_Lejandra.tex} \newpage
+
+	\subsection{Присоединённые функции Лежандра.}\label{que:29}
+		\input{Polynom_Lejandra_Attached.tex} \newpage
+
+	\subsection{Гамма функция.}\label{que:33}
+		\input{Gamma_Function.tex} \newpage
+
+	\subsection{Сферические функции}\label{que:34}
+		\input{Spherical_Functions.tex} \newpage
+
+\appendix
+\label{appendix}
+\section{Приложение}
+	\subsection{Вопросы по курсу}
+		\input{CourseQuestions.tex}\newpage
+	\subsection{Оператор Лапласа}\label{que:4}
+		\input{Laplace_Operator.tex} \newpage
+	\subsection{Линейные, квазилинейные, однородные и неоднородные уравнения}\label{que:5}
+		\input{Lin_and_others.tex} \newpage
+	\subsection{Сопряжённые дифференциальные операторы}\label{que:13}
+		\input{Sop_Div_Operator.tex} \newpage
+
+\section{Примеры}
+	\subsection{Задачи на метод Ритца}
+		\input{Example_Ritz_Method.tex}	
+
+\newpage
+~
+\thispagestyle{empty}
+\vfill
+\pagecolor[rgb]{0.8,0.8,0.8}
+\hfill
+\begin{figure}[t!]
+\centering
+\includegraphics[scale=0.4]{link.png}
+\end{figure}
+\begin{minipage}{10.5cm}
+
+\textcolor[rgb]{0,0,0}{
+\hrule height 0.5pt
+\vspace{3pt}
+Сборная солянка из материалов книги А.Н. Тихонов, А.А. Самарский <<Уравнения математической физики>> и курса лекций, прочитанного студентам потоку <<Прикладная математика и информатика>> СГАУ им. ак. С.П. Королёва в 2011 году. \\
+%Лектор: доцент кафедры <<Прикладная математика>>, \mbox{Федечев А.Ф.} \\
+%Компьютерная вёрстка: Проценко В.И.
+}
+
+
+\end{minipage}
+
+
+\end{document}

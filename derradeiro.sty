@@ -1,0 +1,133 @@
+\ProvidesPackage{derradeiro}
+
+\newif\if@literat
+\DeclareOption{literat}{\@literattrue}
+\DeclareOption{noliterat}{\@literatfalse}
+\newif\if@microtype
+\DeclareOption{microtype}{\@microtypetrue}
+\DeclareOption{nomicrotype}{\@microtypefalse}
+\newif\if@redcolor
+\DeclareOption{redcolor}{\@redcolortrue}
+\newif\if@bluecolor
+\DeclareOption{bluecolor}{\@bluecolortrue}
+\newif\if@nocolor
+\DeclareOption{nocolor}{\@nocolortrue}
+\newif\if@sans
+\DeclareOption{sans}{\@sanstrue}
+
+\ExecuteOptions{literat,microtype}
+\ProcessOptions
+
+
+\RequirePackage{mathrsfs}
+\RequirePackage[warn]{mathtext}
+\RequirePackage[T2A]{fontenc} 
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[english,russian]{babel}
+\RequirePackage{multicol, graphicx,floatflt,grffile,cmap, cancel, paralist, setspace, float, wrapfig}
+\RequirePackage{geometry}
+\geometry{a4paper,left=1.5cm,right=1cm,top=2.3cm,bottom=2cm}
+	\parindent=7mm
+	\setlength{\leftmargini}{24pt}
+
+\RequirePackage{fancyhdr} 
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+\lhead{}
+\chead{\leftmark}
+\rhead{\bfseries\thepage}
+\cfoot{}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+
+\if@literat
+\RequirePackage{literat}
+\fi
+\if@microtype
+\RequirePackage{microtype}
+\fi
+\SetProtrusion
+{
+encoding = T2A,
+family = *
+}
+{
+« = {900,     },
+» = {    , 900},
+„ = {1000,     },
+“ = {    , 1000},
+( = {400,     },
+) = {    , 400},
+! = {    , 1000},
+? = {    , 1000},
+: = {    , 1000},
+; = {    , 1000},
+. = {    , 1000},
+- = {    ,  700},
+{,}= {    , 1000}
+}
+\DeclareMicrotypeSet{t2atext}{encoding=T2A}
+\UseMicrotypeSet{t2atext}
+
+\RequirePackage{amsmath,amssymb,amsthm,color,colortbl,misccorr,mathrsfs} 
+\RequirePackage[pdftex,unicode, pdfborder = { 0 0 0}]{hyperref}
+\hyphenpenalty=1000
+\tolerance=10000
+
+\if@redcolor
+\definecolor{sections}{rgb}{0.5,0.1,0.1}
+\definecolor{subsections}{rgb}{0.4,0.1,0.1}
+\definecolor{subsubsections}{rgb}{0.3,0.1,0.1}
+\fi
+
+\if@bluecolor
+\definecolor{sections}{rgb}{0.07,0.07,0.4}
+\definecolor{subsections}{rgb}{0.05,0.05,0.3}
+\definecolor{subsubsections}{rgb}{0.04,0.04,0.2}
+\fi
+
+\if@nocolor
+\definecolor{sections}{rgb}{0,0,0}
+\definecolor{subsections}{rgb}{0,0,0}
+\definecolor{subsubsections}{rgb}{0,0,0}
+\fi
+
+
+\newtheoremstyle{qd}{4pt}{4pt}{}{}{\bfseries}{.}{.5em}{}
+\theoremstyle{qd}
+\newtheorem{defin}{Определение}[section]
+\theoremstyle{theorem}
+\newtheorem{lemma}{Лемма}[section]
+\newtheorem{theo}{Теорема}[section]
+\newtheorem{corollary}{Следствие}[subsection] 
+\renewcommand{\thetheo}{\bfseries\textcolor[rgb]{0.1,0.3,0.4}  {\arabic{section}\textcolor[rgb]{0,0,0}{.}\arabic{theo}}}
+\renewcommand{\thedefin}{\textcolor[rgb]{0.6,0.1,0.1}{\arabic{section}\textcolor[rgb]{0,0,0}{.}\arabic{defin}}}
+\renewcommand{\thelemma}{\textcolor[rgb]{0.6,0.2,0.6}{\arabic{section}\textcolor[rgb]{0,0,0}{.}\arabic{lemma}}}
+\renewcommand{\thecorollary}{\textcolor[rgb]{0.1,0.3,0.4}{\arabic{corollary}}}
+\newenvironment{qproof}
+{\normalfont\par\noindent{\textcolor[rgb]{0.1,0.2,0.25}{\bfseriesДоказательство.}}}
+{\textcolor[rgb]{0.2,0.2,0.4}{\hfill \small $\blacktriangleleft$}\smallskip\par}
+\newenvironment{note}{\par\noindent\textcolor[rgb]{0.1,0.3,0.1}{\bfseriesЗамечание.}}{\smallskip\par}
+\newenvironment{example}[1]{\par\noindent\textbf{Пример. }{\itshape{#1}}\\}{\smallskip\par}
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\renewcommand{\section}{\newpage \@startsection{section}{1}{0pt}{-3.5explus-1exminus-.2ex}{2.3explus.2ex}{\color{sections}\normalfont\Large\bfseries
+\if@sans
+\sffamily
+\fi}}
+\renewcommand{\subsection}{\@startsection{subsection}{1}{0pt}{-3.0ex plus -1ex minus-.2ex}{1.7ex plus.2ex}{\color{subsections}\normalfont\large\bfseries
+\if@sans
+\sffamily
+\fi}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{1}{0pt}{-3.0ex plus -1ex minus-.2ex}{1.7ex plus.2ex}{\color{subsubsections}\normalfont\large\bfseries
+\if@sans
+\sffamily
+\fi}}
+\abovedisplayskip=.5\abovedisplayskip
+\belowdisplayskip=.5\belowdisplayskip
+\input functions.tex
+\flushbottom
+\pagestyle{fancy}
+
+\@addtoreset{equation}{section} 

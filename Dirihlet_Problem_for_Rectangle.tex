@@ -1,0 +1,105 @@
+\[
+	\Delta u = 0
+\]
+\begin{align*}
+	&u|_{x = 0} = \varphi_1(y) \quad u|_{y = 0} = \psi_1 (x)\\
+	&u|_{x = a} = \varphi_2 (y) \quad u|_{y = b} = \psi_2 (x)
+\end{align*}
+Разбивают задачу на две части
+\[
+	u = u_1 + u_2
+\]
+\[
+	\Delta u_1 = 0
+\]
+\begin{align*}
+	&u|_{x = 0} = 0 \quad u|_{y = 0 = \psi_1 (x)}\\
+	&u|_{x = a} = 0 \quad u|_{y = b = \psi_1(x)} 
+\end{align*}
+\[
+	\Delta u_2 = 0
+\]
+\begin{align*}
+	&u|_{x =0} = \varphi_1 (y)\\
+	&u|_{x =a} = \varphi_2 (y)\\
+	&u|_{y =0} = 0\\
+	&u|_{y =b} = 0
+\end{align*}
+Решим задачу методом разделения переменных
+\[
+	u_1 = \Phi_1 (x) G_1 (y)
+\]
+\[
+	\Phi_1''G_1 + \Phi_1 G_1 '' = 0
+\]
+\[
+	\frac{\Phi_1 ''}{\Phi_1} = - \frac{G_1 ''}{G_1} = - \gamma^2
+\]
+
+\[
+	\Phi_1'' + \gamma^2 \Phi_1  = 0 \quad \Phi_1(x) = A \cos \gamma x + B \sin \gamma x
+\]
+\[
+	G_1'' - \gamma^2 G_1' = 0 \quad G_1(y) = C_1 \ch \gamma y + C_2 \sh \gamma y
+\]
+
+\[
+	\Phi_1(0) = A = 0
+\]
+\[
+	\Phi_1 (a) = B \sin \gamma a = 0
+\]
+\[
+	\gamma a = \pi n \quad \gamma = \frac{\pi n}{a}
+\]
+У нас получилось счётное количество частных решений, поэтому мы их суммируем.
+
+\[
+	u_1 (x, y) = \sum\limits_{n = 1}^{\infty} (C_{1n} \ch \frac{n\pi}{a} y + C_{2n} \sh \frac{\pi n}{a}y)  \sin \frac{\pi n}{a}x
+\]
+\[
+	u_1(x, 0) = \psi_1 (x) = \left.\sum\limits_{n = 1}^{\infty} C_{1n} \sin \frac{\pi n}{a} x \quad \right| \sin \frac{m \pi}{a} x
+\]
+\[
+	\int\limits_{0}^{a} \psi_1(x) \sin \frac{m \pi}{a} x\, dx = C_{1m} \int\limits_{0}^{a} \sin^2 \frac{m \pi}{a} x\, dx = C_{1m} \int\limits_{0}^{a} \frac{1 - \cos 2 \frac{m \pi}{a} x}{2}\, dx = C_{1m} \frac{a}{2}
+\]
+
+\[
+	C_{1n} = \frac{2}{a} \int\limits_{0}^{a} \varphi_1(x) \sin \frac{\pi n}{a} x\, dx
+\]
+\[
+	u_1(x, b) = \psi_2(x) = \sum_{n = 1}^{\infty} (C_{1n} \ch \frac{\pi n}{a} b + C_{2n} \sh \frac{\pi n}{a}b) \sin \frac{\pi n}{a} x
+\]
+
+\[
+	C_{1n} \ch \frac{\pi n}{a} b + C_{2n} \sh \frac{\pi n}{a}b = \frac{2}{a} \int\limits_{0}^{a} \psi_2 (x) \sin \frac{\pi n}{a} x\, dx
+\]\\
+
+\[
+	u_2(x, y) = \sum_{n = 1}^{\infty} (C_{1n} \ch \frac{\pi n}{a} x + C_{2n} \sh \frac{\pi n}{a} x) \sin \frac{\pi n}{a} y
+\]
+\[
+	C_{1n} = \frac{2}{b} \int\limits_{0}^{b} \varphi_1 (y) \sin \frac{\pi n}{b} y\, dy
+\]
+\[
+	C_{1n} \ch \frac{\pi n}{b} a + C_{2n} \sh \frac{\pi n}{b} a = \frac{2}{b} \int\limits_{0}^{b} \varphi_2(y) \sin \frac{\pi n}{b} y\, dy
+\]
+\[
+	C_{2n} = \frac{2}{b} \int\limits_{0}^{b} \varphi_2 (y) \sin \frac{\pi n}{b} y\, dy - C_{1n} \ch \frac{\pi n}{b} a 
+\]
+\\
+Если $\Delta u = h(x, y)$, то решение найдём в виде
+\[
+	h(x, y) = \sum\limits_{n = 1}^{\infty} H_n (y) \sin \frac{\pi n}{a} x
+\] 
+
+\[
+	H_n (y) = \frac{2}{a} \int\limits_0^a h(x, y) \sin \frac{\pi n}{a} x \, dx
+\]
+тогда $u_1 = G(y) \sin \frac{\pi n}{a} x$
+\[
+	G'' - \left(\frac{\pi n}{a} \right)^2 G = H_n (y)
+\]
+\[
+	G_{res} = C_1 \sh \frac{\pi n}{a} y + C_2 \ch \frac{\pi n}{a} y + G_{part}
+\]

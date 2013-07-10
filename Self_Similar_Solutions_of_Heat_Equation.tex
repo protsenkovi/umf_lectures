@@ -1,0 +1,26 @@
+Некоторые задачи  представляют в виде функции от комбинации переменных $x$ и $t$.\\
+	Рассмотрим пример:
+		пусть  $z = \frac{x}{2 \sqrt{t}}$, задача теплопроводности имеет вид:
+		\[\derp{u}{t}{} = \derp{u}{x}{2}\]
+		Начальные условия:
+		\[u(x, t) = u_0 f(z)\]
+		\begin{alignat*}{2}			
+			&u = u_0, &\quad x &\geqslant 0,\\
+			&u = 0, &\quad x &< 0
+		\end{alignat*}
+		Считаем частные производные
+		\[\derp{u}{t}{} = u_0 \der{f}{z}{} \derp{z}{t}{} = - \frac{x}{4 t \sqrt{t}} u_0 \der{f}{z}{}\]
+		\[\derp{u}{x}{} = u_0 \der{f}{z}{} \frac{1}{2 \sqrt{t}} \quad \derp{u}{x}{2} = u_0 \der{f}{z}{2} \cdot \frac{1}{4 t}\]
+		Подставляем в уравнение теплопроводности
+		\[\cancel{- u_0} \frac{x}{\cancel{4t} \sqrt{t}} \der{f}{z}{} = \cancel{u_0} \frac{1}{\cancel{4 t}} \der{f}{t}{2}\]
+		\[-2 z \der{f}{z}{} = \der{f}{z}{2}\]
+		Получили дифференциальное уравнение 2-го порядка
+		\[\der{f}{z}{2} + 2 z \der{f}{z}{} = 0\]
+		Порядок уравнения можно понизить до первого следующей заменой:
+		\[\der{f}{z}{} = \varphi \Rightarrow \der{\varphi}{z}{} = - 2z \varphi\]
+		Полученное уравнение легко интегрируется 
+		\[\ln \varphi = C - z^2 \Rightarrow \varphi = C e^{-z^2}\]
+		\[f(z) = C \int\limits_0^z e^{-\xi^2} d \xi\]
+		\[\lim_{t \to 0} u(x, t) = u_0 \Rightarrow \lim_{t \to 0} f(z) = 1 \Rightarrow C = \frac{2}{\sqrt{\pi}}\]
+		Окончательно получаем:
+		\[u(x, t) =  \frac{2 u_0}{\sqrt{\pi}} \int\limits_0^{- \frac{x}{2 \sqrt{t}}} e^{- \xi^2} d\xi\]

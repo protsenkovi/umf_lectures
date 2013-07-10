@@ -1,0 +1,20 @@
+\includegraphics{5.jpg}
+
+$r_0 \cdot r_* = R^2; \Rightarrow \fbox{$r_* = \frac{R^2}{r_0};$} x_* = \frac{R'}{x_0}; y_* = \frac{R^2}{y_0}; z_* = \frac{R^2}{z_0} $\\
+$r_{AP} = \sqrt{(x - x_0)^2 + (y - y_0)^2 + (z - z_0)^2}$\\
+$G = \frac{B}{r_{A*P}} - \frac{1}{r_{AP}}$\\
+$r_{AP} = \sqrt{r^2 + r_0^2 - 2 r r_0 \cos \xi}$\\
+$r_{A*P} = \sqrt{r^2 + r_*^2 - 2 r r_* \cos \xi}$\\
+$G|_{r = R} = 0$\\
+$r_{AP}|_{r = R} = \sqrt{R^2 + r_0^2 - 2 R r_0 \cos \xi}$\\
+$r_{A*P}|_{r = R} = \sqrt{R^2 + \frac{R^4}{r_0^2} - 2 R \frac{R^2}{r_0} \cos \xi} = \frac{R}{r_0} \sqrt{r_0^2 + R^2 - 2 R r_0 \cos \xi} = \frac{R}{r_0} r_{AP}$\\
+$\frac{B}{\frac{R}{r_0} r_{AP}} - \frac{1}{r_{AP}} = 0; \quad B = \frac{R}{r_0}$\\
+$\derp{G}{u}{} |_{r = R} = \derp{G}{r}{}|_{r = R} = \left[\frac{R}{r_0} \left( - \frac{1}{r_{A*P}^2} \right) \derp{r_{A*P}}{r}{} + \frac{1}{r_{AP}^2} \derp{r_{AP}}{r}{} \right] |_{r = R} = \left[ - \frac{R(r - r_* \cos \xi)}{r_0 r_{AP}^3} + \frac{1}{r_{AP}^3} (r - r_0 \cos \xi) \right]_{r = R} = \frac{-R^2 + \frac{R^3}{r_0} \cos \xi}{r_0 \frac{R^3}{r_0^3} r_{AP}^3} + \frac{R - r_0 \cos \xi}{r_{AP}^3} = \frac{1}{r_{AP}^3} \left[ - \frac{r_0^3}{R} + r_0 \cos \xi + R - r_0 \cos \xi \right]$\\
+$u(x_0, y_0, z_0) = \frac{1}{4 \pi} \iint\limits_S f \cdot \frac{(R^2 - r_0^2)}{R(R^2 + r_0^2 - 2 R r_0 \cos \psi)^{\frac{3}{2}}}$\\
+$u(r_0, \theta_0, \varphi_0) = \frac{1}{4 \pi} \int\limits_0^{2 \pi} d\varphi \int\limits_0^{\pi} f \frac{(R^2 - r_0^2) R^2 \sin \theta d \theta}{R (R^2 + r_0^2 - 2 R r_0 \cos \xi)^{\frac{3}{2}}}$\\
+
+$\bar{OA} = x_0 \bar i + y_0 \bar j + z_0 \bar k = r_0 \sin \theta _0 \cos \varphi_0 \bar i + r_0 \sin \theta_0 \sin \varphi_0 \bar j + r_0 \cos \theta_0 \bar k$\\
+$\bar{OP} = x \bar i + y \bar j + z \bar k = r (\sin \theta \cos \varphi \bar i + \sin \theta \sin \varphi \bar j + \cos \theta \bar k)$\\
+$\frac{\bar{OA}}{\abs{OA}} = \frac{\bar{OA}}{r_0} = \bar e (\sin \theta_0 \cos \varphi_0, \sin \theta_0 \sin \varphi_0, \cos \theta_0)$\\
+$\frac{\bar{OP}}{\abs{OP}} = \frac{\bar{OP}}{\bar r} = \bar e (\sin \theta \cos \varphi, \sin \theta \sin \varphi \cos \theta)$\\
+\newpage

@@ -1,0 +1,30 @@
+		\[\derp{u}{x}{2} - 4\, \derps{u}{x}{y} + 5\, \derp{u}{y}{2} = 0\]
+		Запишем характеристическое уравнение:\\
+		\[dy^2 + 4 dx dy + 5 dx^2 = 0\]
+		\[\left(\der{y}{x}{} \right)^2 + 4 \der{y}{x}{} + 5 = 0\]
+		Найдём корни:
+		\begin{align*}
+		    \der{y_1}{x}{} = -2 + i \quad y_1 + 2x - ix =C_1\\
+		    \der{y_2}{x}{} = -2 - i \quad y_2 + 2x + ix =C_2\\
+		\end{align*}
+
+		Сделаем замену:
+		\[\begin{cases}
+		    \xi(x) = \frac{C_1 + C_2}{2} = y + 2x\\
+		    \eta(x) = \frac{C_1 - C_2}{2i} = - x\\
+		\end{cases}\]
+
+		Найдём производные:
+		
+		\begin{align*}
+		    &\derp{u}{x}{}=  2 \derp{u}{\xi}{}- \derp{u}{\eta}{}; \quad \derp{u}{y}{} = \derp{u}{\xi}{}\\
+		    &\derp{u}{x}{2} =   4 \derp{u}{\xi}{2} - 4 \derps{u}{\eta}{\xi} + \derp{u}{\eta}{2}\\
+		    &\derp{u}{y}{2} =  \derp{u}{\xi}{2}\\
+		    &\derps{u}{x}{y} = 2\derp{u}{\xi}{2} - \derps{u}{\xi}{\eta}\\
+		\end{align*}
+		
+		Подставим в исходное уравнение:
+		\[4 \derp{u}{\xi}{2} - 4 \derps{u}{\xi}{\eta} + \derp{u}{\eta}{2} + 4 \derps{u}{\xi}{\eta} - 8 \derp{u}{\xi}{2}  + 5 \derp{u}{\xi}{2}  = 0\]
+		В итоге
+		\[ \derp{u}{\xi}{2} + \derp{u}{\eta}2{} = 0\]
+Получившееся уравнение является уравнением эллиптического типа.

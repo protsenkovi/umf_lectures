@@ -1,0 +1,137 @@
+\begin{example}{Первая краевая задача для круга.}
+Уравнение Фредгольма можно переписать\\
+\[
+	\nu(S_0) - \frac{1}{\pi} \oint \nu (S) \derp{}{n}{} \left(\ln \frac{1}{r} \right) dS = - \frac{1}{\pi} f(S_0)
+\]
+\[
+	\derp{}{n}{} = - \derp{}{r}{}
+\]
+\[
+	\nu (S_0) - \frac{1}{\pi} \oint \nu(S) \frac{\cos \varphi}{r} dS = - \frac{1}{\pi} f(S_0)
+\]
+\[
+	\cos \varphi = \frac{r}{2 R}
+\]
+\[
+	\nu (S_0) - \frac{1}{\pi} \oint \frac{\nu(S)}{2 R} dS = - \frac{1}{\pi} f(S_0)
+\]
+\[
+	\nu (S) = - \frac{1}{\pi} f (S) + A
+\]
+\[
+	- \frac{1}{\pi} \cancel{f(S_0)} + A - \frac{1}{2 R \pi} \oint \left(A - \frac{1}{\pi} f(S) \right) dS = - \frac{1}{\pi} \cancel{f(S_0)}
+\]
+
+\[
+	- \oint_G \nu(p) \derp{}{n}{} \left(\ln \frac{1}{r} \right) d \gamma + \pi \nu (P_0) = f (P_0)
+\]
+\[
+	\oint_G \nu(P) \frac{\cos \varphi}{r} d \gamma + \pi \nu (P_0) = f (P_0)
+\]
+\[
+	\oint_G \nu(p) \derp{\gamma}{2R}{} + \pi \nu (P_0) = f(P_0)
+\]
+\[
+	\pi \nu(P_0) + \int\limits_0^{2 \pi} \nu (\theta) \frac{d \theta}{2} = f (P_0)
+\]
+
+\[
+	\oint_G \frac{\nu(S)}{2 R} dS + \pi \nu(S_0) = f(S_0)
+\]
+\[
+	\nu(S) = \frac{f(S)}{\pi} + A
+\]
+\[
+	\oint_G \frac{A + \frac{f(s)}{\pi}}{2R} dS +  \pi (A + \frac{\cancel f(S_0)}{\pi}) = \cancel f(S_0)
+\]
+\[
+	\oint_G \frac{A}{2 P} dS + \oint_G \frac{f(S)}{2 \pi R} dS + \pi A = 0
+\]
+Итак, у нас получилось такое уравнение\\
+\[
+	\frac{A}{2R}\oint dS + \oint_G \frac{f(\xi) d\xi}{2 \pi R} + \pi A = 0
+\]
+\[
+	\frac{A \cdot 2 \pi R}{2 R} + \oint_G \frac{f(\xi) d\xi}{2 \pi R} + \pi A = 0
+\]
+
+\[
+	\nu(S) = \frac{1}{4 \pi^2 R} \oint f(\xi) d \xi + \frac{f(S)}{\pi}
+\]
+
+
+\[
+	u(M) = - \oint_G \left[\frac{f(S)}{\pi} - \frac{1}{4 \pi^2 R} \oint f(\xi) d\xi \right] \frac{1}{r} \cos \varphi dS
+\]
+\[
+	\cos \varphi = \frac{r}{R}
+\]
+\begin{multline*}
+	 = \oint_G \frac{f(S)}{\pi} \frac{\cos \varphi}{r} dS - \frac{1}{4 \pi^2 R} \oint_G f(\xi) d \xi \oint_G \frac{\cos \varphi}{r} dS =\\ 
+	 = \oint_G \left(\frac{f(S)}{\pi} \frac{\cos \varphi}{r} - \frac{1}{2 \pi^2 R} f(S) \right) dS = \frac{1}{\pi} \oint f(S) \left[\frac{\cos \varphi}{r} - \frac{1}{2 R} \right]dS
+\end{multline*}
+\[
+	r^2 = R^2 + \rho_0^2 - 2 R \rho_0 \cos(\theta - \theta_0) \frac{\cos \varphi}{r} dS - \frac{1}{4 \pi^2 R}
+\]
+\[
+	u(\theta) = \frac{1}{2 \pi } \oint \frac{f(\theta) (R^2 - \rho_0^2) d\theta}{(R^2 \rho_0^2 - 2 R \rho_0 \cos(\theta - \theta_0))}
+\]
+\end{example}
+
+\begin{example}{Первая краевая задача для полупространства.}
+Найти гармоническую функцию, непрерывную всюду в области $z \geqslant 0$, принмающую на границе $z = 0$ заданное значение $f(x, y)$.
+
+\[
+	W(x, y, z) = - \iint\limits_S \nu (P) \derp{}{n}{} \left(\frac{1}{r} \right)\, dS
+\]
+\[
+	r = \sqrt{(x - \xi)^2 + (y - \eta)^2 + (z - \theta)^2}
+\]
+\[
+	-\frac{1}{2\pi} \iint\limits_S \nu(P) \derp{}{n}{} \left(\frac{1}{r}\right) dS + \nu (P_0) = f(P_0)
+\]
+\[
+	\frac{1}{2 \pi} \iint\limits_S \nu(P) \frac{\cos \varphi}{r^2} dS + \nu (P_0) = \frac{1}{2 \pi} f(P_0)
+\]
+\[
+	\cos \varphi = \derp{r}{z}{} = \frac{2 z}{2 \sqrt{(x - \xi)^2 + (y - \eta)^2 + (z - \theta)^2}} = \frac{z}{r}
+\]
+\[
+	z = 0 \quad \cos \varphi = 0
+\]
+\[
+	\nu(P) = \frac{1}{2 \pi} f(P)
+\]
+\[
+	u = \frac{1}{2 \pi} \iint\limits_S f(P) \frac{1}{r^2} \derp{r}{z}{} dS = \frac{1}{2 \pi} \iint\limits_S f(P) \frac{z}{r^3} dS
+\]
+\[
+	u(x, y, z) = \frac{1}{2 \pi} \int\limits_{-\infty}^{\infty}\int\limits_{-\infty}^{\infty} f(\xi, \eta) \frac{z}{[(x - \xi)^2 + (y - \eta)^2 + z^2]^{\frac{3}{2}}} d \xi d \eta
+\]
+\end{example}
+Вторая задача (задача Неймана) находится в виде потенциала простого слоя.
+Потенциал простого слоя удовлетворяет уравнению Лапласа. Осталось удовлетворить краевым условиям.
+\[
+	\derp{u}{n}{} = \iint\limits_S \mu(\xi, \eta, \zeta) \derp{}{n}{} \left(\frac{1}{r} \right) dS
+\]
+\[
+	- \iint\limits_S \mu \derp{}{n}{} \left(\frac{1}{r} \right) dS + 2 \pi \mu(P_0) - f(P_0) = 0
+\]
+\[
+	\iint\limits_S \mu \derp{}{n}{} \left(\frac{1}{r} \right) dS - 2 \pi \mu (P_0) = - f(P_0)
+\]
+\[
+	- \iint\limits_S \mu (P) \derp{}{n}{} \left(\frac{1}{r} \right) dS = - f
+\]
+\[
+	\iint\limits_S \mu (P) \derp{}{n}{} \left(\frac{1}{r} \right) dS + 2 \pi \mu (P_0) = -f 
+\]
+\[
+	\mu(P_0) - \frac{1}{2 \pi} \iint\limits_S \mu(P) \derp{}{n}{} dS = - \frac{1}{2 \pi} f
+\]
+
+
+
+
+
+

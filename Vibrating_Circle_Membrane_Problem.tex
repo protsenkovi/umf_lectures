@@ -1,0 +1,66 @@
+		\[
+			\derp{u}{t}{2} = a^2 \left(\derp{u}{r}{2} + \frac{1}{r} \derp{u}{r}{}\right)
+		\]
+		Начальные условия $(t = 0)$
+		\begin{align*}
+			u&=f(r)\\
+			\derp{u}{t}{} &= g(r)
+		\end{align*}
+		Граничные условия
+		\begin{align*}
+			&r=0 \quad u \neq \infty\\
+			&r=R \quad u=0
+		\end{align*}
+		Как и в случае прямоугольной мембраны, мы прибегаем к методу Фурье. Решение ищем в виде
+		\[
+			u= T(t) \cdot V(r)
+		\]
+		Подставляем в уравнение
+		\[
+			\frac{1}{a^2} \frac{T''}{T} = \frac{V'' + \frac{1}{r} V'}{V} = - \gamma^2
+		\]
+		\[
+			T = A \cos a\gamma + B \sin a \gamma
+		\]
+		\[
+			V'' + \frac{1}{r} V' + \gamma^2 V = 0 \quad V(r) = I_0 (\gamma r)
+		\]
+		\[
+			V(r = R) = 0 \Rightarrow  I_0 (\gamma R) = 0\Rightarrow   \mu_n = \gamma_n R\Rightarrow  I_0(\mu_n) = 0
+		\]
+		\[
+			u(r, t) = \sum\limits_{n = 1}^{\infty} (A_{n} \cos \gamma_n a t + B_n \sin \gamma_n a t) I_0 (\gamma_n r)
+		\]
+		Из начальных условий
+		\[
+			\derp{u}{t}{}(r, 0) = \sum\limits_{n = 1}^{\infty} \gamma_n a B_n I_0 (\gamma_0 r) = g(r)
+		\]
+		\[
+			\int\limits_0^R r I_0 (\gamma_n r) I_0 (\gamma_k r) dr
+		\]
+		\[
+			r I_0''(\gamma_n r) + I_0'(\gamma_n r) + 2 \gamma_n^2 I_0 (\gamma_n r) = 0 \quad | I_0 (\gamma_k r)\, dr
+		\]
+		\[
+			r I_0''(\gamma_k r) + I_0'(\gamma_k r) + 2 \gamma_k^2 I_0 (\gamma_k r) = 0 \quad | I_0 (\gamma_n r)\, dr
+		\]
+		\begin{multline*}
+			\int\limits_0^1 \{ 2 [I_0''(\gamma_n r) I_0 (\gamma_k r) + I_0' (\gamma_n r) I_0 (\gamma_k r) + \gamma_n^2 I_0 (\gamma_n r) I_0 (\gamma_k r) -\\{}- I_0'' (\gamma_k r) I_0 (\gamma_n r) - I_0' (\gamma_k r) I_0 (\gamma_n r) -  \gamma_k^2 I_0 (\gamma_n r) I_0 (\gamma_k r)]\} dr = 0
+		\end{multline*}
+		%\[
+		%	\int\limits_0^1 \{ \frac{d}{dr} [r (I_0 ' (\gamma_n r) I_0 (\gamma_k r))] - \frac{d}{dr} [r (I_0 ' (\gamma_k r) I_0 (\gamma_n r)]\}
+		%\]
+	
+		
+	
+		\[
+			\mu = \gamma r
+		\]
+		\[
+			\int\limits_0^R r J_0 (\gamma_k r) I_0 (\gamma_n r) dr = \lim\limits_{n \rightarrow k} \frac{R I_0 (\gamma_n R) \der{I_0}{r}{} (\gamma_k r ) \bigl|_{r = R}}{(\gamma_n^2 - \gamma_k^2)} = \frac{\gamma I_0' (\gamma_k R)}{2 \gamma} = \frac{1}{2} R I_0'(\gamma_n R)
+		\]
+		Пользуясь ортоганальностью можно получить константы:\\
+		\begin{align*}
+			&A_n \frac{R I_0' (\gamma_n R)}{2} = \int\limits_0^R r f(r) I_0 (\gamma_n r)\, dr\\
+			&B_n a \gamma_n \frac{R I_0' (\gamma_n R)}{2} = \int\limits_0^R r g(r) I_0 (\gamma_m r)\, dr
+		\end{align*}

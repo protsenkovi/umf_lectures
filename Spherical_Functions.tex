@@ -1,0 +1,121 @@
+Сферические функции проще всего могут быть выведены при решении уравнения Лапласа для шаровой области методом разделения переменных (метод Фурье). \\
+Мы рассмотрим вывод на примере решения задачи теплопроводности.
+
+Будем искать решение уравнения в переменных $r, \theta, \varphi$
+\[
+    \derp{u}{t}{} = a^2 \left(\derp{u}{r}{2} + \frac{2}{r} \derp{u}{r}{} + \frac{1}{r^2 \sin \theta} \derp{}{\theta}{} \left(\sin \theta \derp{u}{\theta}{}\right) + \frac{1}{r^2 \sin^2 \theta} \derp{u}{\varphi}{2}\right)
+\]
+
+\begin{align*}
+      &0 \leqslant r \leqslant R\\
+	&0 \leqslant \theta \leqslant \pi\\
+	&0 \leqslant \varphi \leqslant 2 \pi
+\end{align*}
+
+
+
+Связь с декартовой системой координат
+\begin{align*}
+      &x = r \sin \theta \cos \varphi\\
+	&y = r \sin \theta \sin \varphi\\
+	&z = r \cos \theta
+\end{align*}
+Положим 
+\[
+    u(t, r, \theta, \varphi) = T(t) v (r, \theta, \varphi)
+\]
+Решим задачу теплопроводности
+\[
+    T' v = a^2 T \Delta_{r, \theta \varphi} v \Big| \frac{1}{a^2 v T}
+\]
+
+\[
+    \frac{T'}{a^2 T} = \frac{\Delta_{r, \theta, \varphi} v}{v} = - k^2
+\]
+
+\[
+    \frac{T'}{a^2 T} = - k^2
+\]
+
+\[
+    \Delta_{r, \theta  \varphi} v = - k^2 v
+\]
+$v(r, \theta, \varphi)$ будем искать в виде
+\[
+    v(r, \theta, \varphi) = R(r) Y(\theta, \varphi)
+\]
+Составим уравнение
+\[
+   \left. R'' Y + \frac{2}{r} R' + \left[\frac{1}{r^2 \sin v} \der{}{\theta}{} \left( \sin \theta \derp{Y}{\theta}{}\right)  + \frac{1}{r^2 \sin^2 \theta} \derp{Y}{\varphi}{2}\right]R(r) = - k^2 R Y \quad \right| \frac{r^2}{R Y}
+\]
+
+\[
+    \frac{r^2 R'' + 2 r R'}{R} + k^2 r^2 = - \frac{\left[ \frac{1}{\sin \theta} \derp{}{\theta}{} \left( \sin \theta \derp{Y}{\theta}{} \right) + \frac{1}{\sin^2 \theta} \derp{Y}{\varphi}{2}\right]}{Y} = \lambda^2
+\]
+
+
+\begin{equation}
+    R'' + \frac{2}{r} R' + \left(k^2 - \frac{\lambda^2}{r^2}\right) R = 0
+	\label{equ:equBess}
+\end{equation}
+Уравнение \eqref{equ:equBess} сводится к уравнению Бесселя.
+
+\[
+    \derp{Y}{\theta}{2} + \ctg \theta \derp{Y}{\theta}{} + \frac{1}{\sin^2 \theta} \derp{Y}{\varphi}{2} + \lambda^2 Y = 0
+\]
+Решение задачи $Y(\theta, \varphi)$ также ищем методом разделения переменных
+\[
+    Y_\lambda = F(\varphi) P(\theta)
+\]
+
+\[
+    \left. P'' F + \cos \theta P' F + \frac{1}{\sin^2 \theta} F'' P + \lambda^2 F P = 0\quad \right| \frac{\sin^2 \theta}{P F}
+\]
+Разделим переменные
+\[
+    \frac{\sin^2 \left[P'' + \cos \theta P' \right]}{P} + \lambda^2 \sin^2 \theta = - \frac{F''}{F} 
+\]
+В итоге получим
+\[
+    - \frac{F''}{F} = m^2 
+\]
+$m^2$ -- константа\\
+
+$F$ удовлетворяет уравнению
+\[ 
+     F'' + m^2 F = 0
+\]
+%и условию переодичности
+%\[
+%    F(\varphi + 2 \pi) = F(\varphi)
+%\]
+Решается в виде
+\[ 
+     F = A_m \sin m \varphi + B_m \cos m \varphi
+\]
+
+\[
+    \left. \sin^2 \theta P'' + \sin \theta \cos \theta (\lambda^2 \sin^2 \theta - m^2) P = 0 \quad \right|  Y_\lambda = F(\varphi) P(\theta)
+\]
+Замена
+\[
+    \cos \theta = z \quad \sin^2 \theta = (1 - z^2)
+\]
+Найдём производные
+\begin{align*}
+    &\der{P}{\theta}{} = \der{P}{z}{} \der{z}{\theta}{} = - \sin \theta \derp{P}{z}{}\\
+    &\der{P}{\theta}{2} = - \cos \theta \der{P}{z}{} + \sin^2 \theta \der{P}{z}{2}
+\end{align*}
+
+\[
+    P'' + \cos P' + \left(\lambda - \frac{m^2}{\sin^2 v} \right) P = 0
+\]
+
+\[
+    (1 - z^2)P''_{zz} - \cos \theta \der{P}{z}{} + \cos \theta \left(- \sin \theta\right) \der{P}{z}{} + \left(\lambda - \frac{m^2}{1 - z^2}\right) P
+\]
+
+В итоге получили
+\[
+     (1 - z^2) \der{P}{z}{2} - 2 z \der{p}{z}{} + \left(\lambda - \frac{m^2}{1 - z^2} \right) P = 0
+\]

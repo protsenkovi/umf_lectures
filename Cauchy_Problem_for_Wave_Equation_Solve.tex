@@ -1,0 +1,111 @@
+\setcounter{equation}{0}
+\begin{equation}
+	\derp{u}{t}{2} = a^2 \derp{u}{x}{2} 
+	\label{equ:equInfStringCauchy}
+\end{equation}
+Начальные условия 
+\begin{alignat*}{1}
+    u(x, 0) &= f(x)\\
+    \derp{u}{t}{} (x, 0) &= g(x)
+\end{alignat*}
+Преобразуем это уравнение к каноническому виду, содержащему смешанную производную. Уравнение характеристик
+\[
+	dx^2 - a^2\, dt^2 = 0
+\]
+распадается на два уравнения:
+\[
+	dx - a\, dt = 0, \quad dx + a\, dt = 0.
+\]
+	Характеристиками уравненения являются две прямые:
+\begin{align*}
+	&\xi = x - at = C_1\\
+	&\eta = x + at = C_2
+\end{align*}
+Приводим к каноническому виду
+\begin{alignat*}{2}
+	\derp{u}{t}{} &= a \derp{u}{\eta}{} - a \derp{u}{\xi}{} \quad &\derp{u}{t}{2} &= a^2 \derp{u}{\eta}{2} - 2 a^2 \derps{u}{\xi}{\eta} + a^2 \derp{u}{\xi}{2}\\
+	\derp{u}{x}{} &=\derp{u}{\xi}{} + \derp{u}{\eta}{} \quad &\derp{u}{x}{2} &= \derp{u}{\xi}{2} + 2 \derps{u}{\xi}{\eta} + \derp{u}{\eta}{2}
+\end{alignat*}
+\[
+	4 a^2 \derps{u}{\xi}{\eta} = 0
+\]
+В итоге уравнение колебаний струны преобразуется к виду:
+\[
+	\derps{u}{\xi}{\eta} = 0
+\]
+Найдём общий интеграл последнего уравнения:
+\[
+	\derp{u}{\eta}{} = \chi \quad \derp{\chi}{\xi}{} = 0
+\]
+\[
+	\chi =V(\eta) \quad \derp{u}{\eta}{} = V(\eta)
+\]
+\[
+	u(\xi, \eta)= \int\limits_{\eta_0}^{\eta} V(\tau) d \tau + \psi(\xi)
+\]
+\[
+	u(\xi, \eta) = \varphi(\eta) + \psi (\xi)
+\]
+Функция
+\begin{equation}
+      u(x,t) = \varphi (x +at) + \psi (x - at)
+	\label{equ:equCommonIntegral}
+\end{equation}	
+
+является общим интегралом уравнения \eqref{equ:equInfStringCauchy}.
+
+Решение задачи называется корректным если оно существует, единственно и устойчиво.\\
+
+\textbf{Существование}\\
+	$\varphi(x +at)$ и $\psi(x - at)$ - должны допускать непрерывные частные производные.\\
+
+\textbf{Единственность}\\
+	Пусть $u(x, t) = \varphi (x + at) + \psi (x - at)$. Определим $f(x)$ и $g(x)$ таким образом, чтобы удовлетворялись начальные условия:
+\begin{equation}
+	u(x, 0) = \varphi (x) + \psi(x) = f(x)
+	\label{equ:wave1}
+\end{equation}
+\[
+	\derp{u}{t}{} (x, 0) = a \varphi'(x) - a \psi' (x) = g(x)
+\]
+Интегрируя второе равенство, получим:
+\begin{equation}
+	a \varphi(x) - a \psi(x) = \int\limits_{x_0}^{x} g(\tau) d \tau  + C
+	\label{equ:wave2}
+\end{equation}
+где $x_0$ и $C$ - постоянные. Из \eqref{equ:wave1} и \eqref{equ:wave2} находим:
+\[
+	2 \varphi(x) = f(x) + \frac{1}{a} \int\limits_{x_0}^x g(\tau) d \tau + \frac{C}{2}
+\]
+\[
+	2 \psi(x) = f(x) - \frac{1}{a} \int\limits_{x_0}^x g(\tau) d \tau - \frac{C}{2} 
+\]
+\begin{equation}
+\begin{cases}
+	 \varphi(x)  = \frac{1}{2} f(x) + \frac{1}{2a} \int\limits_{x_0}^x g(\tau) d \tau\\
+	\psi(x) = \frac{1}{2} f(x) - \frac{1}{2a} \int\limits_{x_0}^x g(\tau) d \tau
+\end{cases}
+\label{equ:equWave3}
+\end{equation}
+Таким образом, мы определили функции $\varphi$ и $\xi$ через заданные $f$ и $g$, причём равенства \eqref{equ:equWave3} должны иметь место для любого значения аргумента\footnote{В формуле \eqref{equ:equCommonIntegral} функции $\varphi$ и $\xi$ определены неоднозначно. Если от $\varphi$ отнять, а к $\xi$ прибавить некоторую постоянную $C_1$, то $u$ не изменится. В формуле \eqref{equ:equWave3} постоянная $C$ не определяется через $\varphi$ и $\xi$, однако мы можем её отбросить, не меняя значения~$u$. При сложении $\varphi$ и $\xi$ слагаемые $\frac{C}{2}$ и $-\frac{C}{2}$  уничтожаются.}.
+\begin{equation}
+	u(x, t) = \frac{f(x + at) + f(x - at)}{2} + \frac{1}{2a} \int\limits_{x - at}^{x + at} g (\tau) d \tau
+	\label{equ:equDalamber}
+\end{equation}
+
+Формулу \eqref{equ:equDalamber}, называемую \textit{формулой Даламбера}, мы получили, предполагая существование решения поставленной задачи. Эта формула доказывает единственность решения. Если бы существовало второе решение задачи \eqref{equ:equInfStringCauchy}, то оно представлялось бы формулой \eqref{equ:equDalamber} и совпадало бы с решением.\\
+
+\textbf{Устойчивость}\\
+Рассмотрим решение возмущённой задачи $\tilde u$:
+\[
+	\tilde u = f(x) + \varepsilon_1 \quad \derp{\tilde u}{t}{} (x, 0) = g(x) + \varepsilon_2
+\]
+Рассмотрим разность решений исходной и возмущённой задач
+\[
+	\abs{u(x, t) - \tilde u (x, t)} \leq \abs{\varepsilon_1} + \frac{1}{2a} \int\limits_{x - at}^{x + at} \varepsilon_2\, dt \leq \sigma(1 + t) \Rightarrow
+\]
+$\Rightarrow$ $\forall \varepsilon >0$ можно подобрать $\sigma: \sigma \leq \frac{\varepsilon}{1 + t}$\\
+Следовательно решение устойчиво.
+		
+
+

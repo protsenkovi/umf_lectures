@@ -1,0 +1,33 @@
+\begin{equation}
+	\mathscr{L}[u] = u_{xx} - u_{yy}  + a u_x + b u_x + c u
+	\label{equ:equDivOp}
+\end{equation}
+--- линейный дифференциальный оператор, соответствующий линейному уравнению гиперболического типа, а $a(x, y), b(x, y), c(x, y)$ --- дифференциируемые фукнции. Умножая $\mathscr{L}[u]$ на некоторую функцию $v$, запишем отдельные слагаемые в виде
+\begin{align*}
+	&v u_{xx} = (v u_x)_x - (v_x u)_x + u v_{xx}, &v b u_y &= (b v u)_y - u (bv)_y,\\
+	&v u_{yy} = (v u_y)_y - (v_y u)_y + u v_{yy} &v c u &= u c v.\\
+	&v au_x = (a v u)_x - u(a v)_x,
+\end{align*}
+Суммируя отдельные слагаемые, получаем:
+\begin{equation}
+	v \mathscr{L}[u] = u \mathscr{M}[v] + \derp{H}{x}{} + \derp{K}{y}{},
+	\label{equ:equDivOp}
+\end{equation}
+где 
+\[
+	\mathscr{M}[v] = v_{xx} - v_{yy} - (a v)_x - (b v)_y + c v
+\]
+\begin{align*}
+	&H = v u_x - v_x u + av u = (v u)_x - (2 u_x - a v) u = - (v u)_x + (2u_x + a u)v,\\
+	&K= - v u_y + v_y u + b v u = -(v u)_y + (2v_y + b v) u = (u v)_y - (2 u_y - b y)v.
+\end{align*}
+
+Два дифференциальных оператора называются \textit{сопряжёнными}, если разность 
+\[
+	v \mathscr{L}[u] - u \mathscr{M}[v]
+\]
+является суммой частных производных по $x$ и $y$ от некоторых выражений $H$ и $K$. 
+
+Рассматриваемые нами операторы $\mathscr{L}[u]$ и $\mathscr{M}[v]$, очевидно, являются \textit{сопряжёнными}.
+
+Если $\mathscr{L}[u] = \mathscr{M}[u]$, то оператор $\mathscr{L}[u]$ называется \textit{самосопряжённым}.

@@ -1,0 +1,38 @@
+Рассмотрим задачу для пространственной области. Третья краевая задача отличается от первых двух краевыми условиями:\\
+\[
+	\Delta u = 0
+\]
+\[
+	\derp{u}{n}{} + h u \Big|_S = f
+\]
+Функцию Грина ищем в таком виде\\
+\[
+	G = W - \frac{1}{r_{AP}}
+\]
+Потребуем,чтобы на границе \[
+	\derp{G}{n}{} + h G|_S = 0
+\]
+Тогда  формулу Грина можно переписать\\
+\begin{multline*}
+	u(x_0, y_0, z_0) = \frac{1}{4 \pi} \iint\limits_S \left( u \derp{G}{n}{} - G \derp{u}{n}{} \right) dS = \frac{1}{4 \pi} \iint\limits_S \left( u \derp{G}{n}{} + u h G - u h G - G \derp{u}{n}{}\right) dS = \\ = \derp{1}{4 \pi}{} \iint\limits_S \left[ u \left( \derp{G}{n}{} + h G \right) G \left( \derp{u}{n}{} + h u\right)\right] dS = - \frac{1}{4 \pi} \iint\limits G f dS
+\end{multline*}
+До сих пор мы рассматривали задачу для $(x_0, y_0, z_0) \subset \Omega \backslash S, S = \partial\Omega$. 
+Рассмотрим предельный случай, когда точка $a$ находится на границе области.
+Будем огрничивать особую точку полусферой\\
+Площадь полусферы $2 \pi R^2$.
+\[
+	u(x_0, y_0, z_0) = \frac{1}{2 \pi} \iint \left(u \derp{v}{n}{} - v \derp{i}{n}{} \right)\, dS - \frac{1}{2 \pi} \iiint\limits_\Omega \left(u\Delta v - v \Delta u \right)\, d\Omega
+\]
+Если $a \notin \Omega$, то 
+\[
+	\iint\limits_S \left(u \derp{v}{n}{} - v \derp{u}{n}{} \right)\, dS - \iiint\limits_\Omega \left(u\Delta v - v \Delta u \right)\, d\Omega = 0
+\]
+\[
+	u(x_0, y_0, z_0) = \begin{cases} 
+						4 \pi u & A \in \Omega \\
+						2 \pi u & A \in S \\
+						0 &  A  \notin  \Omega
+					\end{cases}
+\]
+
+

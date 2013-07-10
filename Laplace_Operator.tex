@@ -1,0 +1,24 @@
+Оперaтор Лапласа (лапласиан, оператор дельта) — дифференциальный оператор, действующий в линейном пространстве гладких функций и обозначаемый символом $\Delta$. 
+
+Функции  $F$ он ставит в соответствие функцию
+\[
+	\left( \derp{}{x_1}{2} + \derp{}{x_2}{2} + \cdots + \derp{}{x_n}{2}   \right)F
+\]
+
+Оператор Лапласа эквивалентен последовательному взятию операций \href{http://en.wikipedia.org/wiki/Gradient}{градиента} и \href{http://en.wikipedia.org/wiki/Divergence}{дивергенции}: $\Delta~=~\mathrm{div}\,~\mathrm{grad}$, таким образом значение оператора Лапласа в точке может быть истолковано как плотность источников (стоков) потенциального векторного поля  в этой точке. В декартовой системе координат оператор Лапласа часто обозначается следующим образом \[\Delta = \nabla \cdot \nabla = \nabla^2,\] то есть в виде скалярного произведения оператора набла на себя.
+
+
+\subsubsection*{Представления в различных системах координат}
+
+
+\begin{flalign*}
+	\begin{tabular}{l l l}
+		Двумерное&&\\
+		&\textbf{В декартовой} &$\displaystyle\Delta f = \derp{f}{x}{2} + \derp{f}{y}{2} $\\[12pt]
+		&\textbf{В полярной} &$\displaystyle\Delta f = \frac{1}{r} \derp{}{r}{} \left( r \derp{f}{r}{}\right) + \frac{1}{r^2} \derp{f}{\theta}{2}$ \\[12pt]
+		Трёхмерное&&\\
+		&\textbf{В декартовой} &$\displaystyle\Delta f = \derp{f}{x}{2} + \derp{f}{y}{2} + \derp{f}{z}{2}$\\[12pt]
+		&\textbf{В цилиндрической} &$\displaystyle\Delta f = \frac{1}{\rho} \derp{}{\rho}{} \left( \rho \derp{f}{\rho}{}\right) + \frac{1}{\rho^2} \derp{f}{\theta}{2} + \derp{f}{z}{2}$ \\[12pt]
+		&\textbf{В сферической} &$\displaystyle\Delta f = \frac{1}{r^2} \derp{}{r}{} \left(r^2 \derp{f}{r}{} \right) + \frac{1}{r^2 \sin \varphi} \derp{}{\varphi}{} \left( \sin \varphi \derp{f}{\varphi}{}\right) + \frac{1}{r^2 \sin^2 \varphi} \derp{f}{\theta}{2}$\\
+	\end{tabular}
+\end{flalign*}

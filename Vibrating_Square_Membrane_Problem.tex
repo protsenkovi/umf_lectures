@@ -1,0 +1,125 @@
+	Пусть в плоскости $(x, y)$ расположена прямоугольная пластинка со сторонами $a$ и $b$, закреплённая по краям и возбуждаемая с помощью начального отклонения и начальной скорости. Для нахождения функции $u(x, y, t)$ мы должны решить уравнение колебаний
+
+	\[
+		\derp{u}{t}{2} = a^2 \left(\derp{u}{x}{2} + \derp{u}{y}{2} \right)\quad x\in [0,a], y \in [0, b]
+	\]
+	Начальные условия при $t = 0$
+	\begin{alignat*}{1}
+		u&=f(x,y) \\
+		\derp{u}{t}{} &= g(x,y)
+	\end{alignat*}
+	Граничные условия
+	\begin{align*}
+		x=0 \quad u=0, \quad x = a \quad u = 0\\
+		y=0 \quad u=0, \quad y = b \quad u = 0\\
+	\end{align*}
+%\includegraphics{squareplate.pdf}
+
+	Будем искать решение методом Фурье в виде
+	\[
+		u(x,y,t) = T(t) \cdot G(x,y);
+	\]
+	\[
+	\derp{u}{t}{2} = T''  G; \qquad \derp{u}{x}{2}  = T \derp{G}{x}{2}; \qquad \derp{u}{y}{2} = T\derp{G}{y}{2}
+	\]
+	\[
+		\left.  T''  G = a^2 T  \left(\derp{G}{x}{2} + \derp{G}{y}{2}\right) \quad \right| \frac{1}{TG}
+	\]
+	
+
+	\[
+		\frac{1}{a^2} \frac{T''}{T} = \frac{1}{G} \left(\derp{G}{x}{2} + \derp{G}{y}{2}\right) = - \lambda^2
+	\]
+		Такое равенство возможно в единственном случае\\
+	\[
+		T'' + a^2 \lambda^2 T = 0 \qquad \derp{G}{x}{2} + \derp{G}{y}{2} + \lambda^2 G = 0
+	\]
+	
+	G представим в виде произведения двух функций:
+	\[
+		G(x,y) = X(x) \cdot Y(y)
+	\]
+	\[
+		\frac{X''}{X} + \frac{Y''}{Y} + \lambda^2 = 0
+	\]
+	
+	Это возможно, только если обе функции равны одной константе.
+	\[
+		[X = -k^2 \quad Y=-n^2]
+	\]
+	\[
+		-k^2 -n^2 +\lambda^2 =0
+	\]
+	
+	Таким образом получили следующие дифференциальные уравнения
+	\[
+		\left\{
+		\begin{aligned}
+			&T'' + a^2 \lambda^2 T = 0 \\
+			&X'' + k^2X = 0\\	
+			&Y'' + n^2 Y = 0\\
+			&p^2 = k^2 + n^2\
+		\end{aligned}
+		\right.
+	\]
+	Найдём решение в виде
+	\[
+		u(x,y,t) = T(x) \cdot X(x)\cdot Y(y)
+	\]
+	\[
+		x=0: u = T(t) X(0) Y(y) = 0 \Rightarrow
+	\]
+	\[
+		X(0) = 0 \quad X(a) = 0 \quad Y(0) = 0 \quad Y(b)= 0
+	\]
+	Решим задачу Штурма--Лиувилля. Из граничных условий найдём $k$ и $n$:
+	\begin{alignat*}{2}
+		&X'' + k^2 X = 0	&\phantom{\qquad}\quad&Y'' + n^2 Y = 0\\
+		&X(0) = 0 \quad X(a) = 0	&&Y(0) = 0 \quad Y(a) = 0\\
+		&X(x)= C_1 \cos k x + C_2 \sin k x	&&Y(x)= C_3 \cos n x + C_4 \sin n x\\
+		&C_1 = 0 \quad \sin ka= 0	&&C_3 = 0 \quad \sin ka= 0\\
+		&ka = mt; \quad k = \frac{m\pi}{a} m=1,2\dots		&&n = \frac{l \pi}{b} l =1,2 \dots\\
+		&X(x)= C_2 \sin  \frac{m \pi}{a} x	&&Y(y) = C_4 \sin \frac{l \pi}{b} x		
+	\end{alignat*}
+	Решениям уравнений соответствуют собственные значения
+	\[	
+		\lambda_{m, l} = \bigg(\frac{m \pi}{a}\bigg)^2 +\left(\frac{l \pi}{b}\right)^2 
+	\]
+	Решим последнее уравнение, подставив $\lambda_{m, l}$
+	\[
+		T'' + a^2 \left[\bigg(\frac{m \pi}{a}\bigg)^2 +\left(\frac{l \pi}{b}\right)^2\right]T = 0
+	\]
+	Решением будет являтся
+	\[	
+		T = A_{m, l} \cos a \sqrt{\bigg(\frac{m \pi}{a}\bigg)^2 +\left(\frac{l \pi}{b}\right)^2 } + B_{m, l} \sin \sqrt{\bigg(\frac{m \pi}{a}\bigg)^2 +\left(\frac{l \pi}{b}\right)^2 }
+	\]
+	\begin{multline*}
+		u_{m,l} (x,y,t) = \left[A_{m,l} \cos a \sqrt{\left(\frac{m \pi}{a}\right)^2 + \left(\frac{l \pi}{b}\right)^2} + B_{m,l} \sin a \sqrt{\left(\frac{m \pi}{a}\right)^2 + \left(\frac{l \pi}{b}\right)^2} t\right] \sin \frac{m \pi}{a} x  \sin \frac{l \pi}{b} y
+	\end{multline*}
+
+
+
+	Полученное уравнение удовлетворяет краевым условиям.
+	Неизвестные константы найдём из начальных условий.
+	\begin{equation}
+		t = 0; \quad u(x, y, 0) = f(x,y) = \sum\limits_{m=1}^{\infty} \sum\limits_{l = 1}^{\infty} A_{m,l} \sin \frac{m \pi}{a} \sin \frac{l \pi}{b} y
+		\label{equ:equSquareMembr1}
+	\end{equation}
+	\begin{equation}
+		\derp{u}{t}{}(x, y, 0) = g(x,y) = \sum\limits_{m=1}^{\infty} \sum\limits_{l = 1}^{\infty}  a \sqrt{\bigg(\frac{m \pi}{a}\bigg)^2  + \left(\frac{l \pi}{b}\right)^2} B_{m,l} \sin \frac{m \pi}{a} x \sin \frac{l \pi}{b} y
+		\label{equ:equSquareMembr2}
+	\end{equation}
+
+Видно, что \eqref{equ:equSquareMembr1} и \eqref{equ:equSquareMembr2} это ряды Фурье, коэффициенты которых определяются по формулам:
+	\begin{align*}
+		&A_{m,l} = \frac{4}{ab} \int\limits_0^a \int\limits_0^b f(x,y)\sin \frac{m \pi}{a} x \sin\frac{l \pi}{b} y\, dx dy\\
+		&B_{m,l} = \frac{4}{a \sqrt{(b \pi p)^2 + (a \pi l)^2}} \int\limits_0^a \int\limits_0^b g(x,y) \sin \frac{m \pi}{a} x \sin \frac{l \pi}{b} y\, dx dy
+	\end{align*}
+
+	%Домножим на $\sin \frac{M \pi}{a} a \sin \frac{h \pi}{b} y_0\, dx dy$\\
+	Это легко показать, так как
+	\begin{multline*}
+	 \int\limits_0^a\int\limits_0^b f(x,y) \sin \frac{\pi m}{a} \sin \frac{\pi l}{b} y\,  dx dy = \sum\limits_{m=1}^{\infty} \sum\limits_{l = 1}^{\infty} A_{m,l} \int\limits_0^a\int\limits_0^b \sin \frac{\pi m}{a} x \sin \frac{\pi M}{a} x \sin \frac{\pi l}{b} y \sin \frac{\pi L}{b} y\, dx dy =\\	
+		 = \sum\limits_{m=1}^{\infty} \sum\limits_{l = 1}^{\infty} A_{m,l} \int\limits_0^a \sin \frac{\pi m }{a} x \sin\frac{\pi M }{a}x\, dx \int\limits_0^b \sin \frac{\pi l }{b} y \sin \frac{\pi L}{b}y\, dy = \\
+		= A_{m,l}  \int\limits_0^a \sin^2 \frac{\pi m}{a} x\,  dx \int\limits_0^b \sin^2 \frac{\pi l}{b} y\, dy = A_{m,l} \frac{a}{2} \frac{b}{2} \cdot \int\limits_m^M \cdot \int\limits_l^L
+	\end{multline*}

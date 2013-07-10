@@ -1,0 +1,154 @@
+\subsubsection{Присоединённые функции} \setcounter{equation}{0}
+В задачах \textit{Штурма-Лиувилля} в многомерном случае уравнение Лежандра принимает вид
+\begin{equation}
+    \der{}{z}{} \left[ (1 - z^2) \der{y}{z}{} \right] +\left[n(n + 1) - \frac{m^2}{1 - z^2}\right] y = 0
+		\label{equ:LejandrAtt1}
+\end{equation}
+где $m$ --- константа.
+
+Будем искать решение $y$ в виде
+\[
+    y = (1 - z)^{\frac{m}{2}} v (z)
+\]
+Найдём первую производную
+\[
+    \der{y}{z}{} = \frac{m}{2} (1 - z^2)^{\frac{m - 2}{2}} (- 2 z) v + (1 - z^2)^{\frac{m}{2}} \der{v}{z}{}
+\]
+Умножим на $(1 - z^2)$
+\[
+    (1 + z^2) \der{y}{z}{} = - m z(1 - z^2)^{\frac{m}{2}} v + (1 - z^2)^{\frac{m + 2}{2}} \der{v}{z}{}
+\]
+\begin{multline*}
+    \der{}{z}{} \left[ (1 -z^2) \der{y}{z}{} \right] = - m (1 - z^2)^{\frac{m}{2}} v + m \frac{m}{2} z (2 z) (1 - z^2)^{\frac{m - 2}{2}} v - mz(1 - z^2)^{\frac{m}{2}} \der{v}{}{} -\\ {}- \frac{m + 2}{2} (2 z) (1 - z^2)^{\frac{m}{2}} \der{v}{z}{} + (1 - z^2)^{\frac{m + 2}{2}} \der{v}{z}{2}
+\end{multline*}
+Подставим в формулу  \eqref{equ:LejandrAtt1}
+\begin{multline*} 
+    (1 - z^2)^{\frac{m + 2}{2}} \der{v}{z}{2} + \der{v}{z}{} \left[ - m z (1 - z^2)^\frac{m}{2} + (m + 2)z (1 - z^2)^\frac{m}{2} \right] +{}
+	\\+ v \left[- m (1 - z^2)^\frac{m}{2} + m^2 z^2 (1 - z^2)^\frac{m - 2}{2} + n(n + 1)(1 - z^2)^2\frac{m}{2} - \frac{m^2}{1 - z^2} (1 - z^2)^\frac{m}{2} \right] = 0,
+\end{multline*}
+сократим на $(1 - z^2)^\frac{m}{2}$ 
+\begin{equation}
+    (1 -z^2) \der{v}{z}{2} - 2 z (m + 1) \der{v}{z}{} + \left[n(n + 1) - m(m + 1) \right] v = 0
+	\label{equ:LejandrAtt2}
+\end{equation}
+
+Возьмём
+\[
+    (1 - z^2)\der{y^*}{z}{2} - 2 z \der{y^*}{z}{} + n(n + 1) y^* = 0, \qquad y^* = P_n(z)
+\]
+Возьмём первую производную\\
+первое слагаемое
+\[
+    \der{}{z}{m} \left[(1 - z^2)\der{y^*}{z}{2} \right] = \der{y^*}{z}{m + 2} + m \der{y^*}{z}{m+1} (- 2 z) + \frac{m(m - 1)}{2} \der{y^*}{z}{m} (- 2) = 0
+\]
+второе слагаемое
+\[
+    \der{}{z}{m} \left[z \der{y^*}{z}{} \right] = \der{y^*}{z}{m + 1} z + m \der{y^*}{z}{m} 
+\]
+
+\begin{equation*}
+	\der{y^*}{z}{m + 1} (- 2 z) + \frac{m(m + 1)}{2} \der{y^*}{z}{m} 
+\end{equation*}
+
+\begin{equation}
+    (1 - z^2) \der{y^*}{z}{m + 2} - 2 z (m + 1) \der{y^*}{z}{m + 1} + \left[- m^2 + m - 2 m + n(n + 1) \right] \der{y^*}{z}{m} = 0
+	\label{equ:LejandrAtt3}
+\end{equation}
+
+Если $v = \der{y^*}{z}{m}$, то \eqref{equ:LejandrAtt2} $=$ \eqref{equ:LejandrAtt3}
+\[ 
+	v = \der{y^*}{z}{m} = \der{}{z}{m} \left( P_n(m) \right)
+\]
+Подставив в уравнение \eqref{equ:LejandrAtt1}, получим решение
+\begin{equation}
+    y = (1 - z^2)^\frac{m}{2} \cdot \der{}{x}{m} P_n (z)= P_n^{(m)} (z)
+	\label{equ:connLejandra}
+\end{equation}
+\eqref{equ:connLejandra} -- присоединённые полиномы Лежандра
+
+
+\subsubsection{Ортогональность}\label{que:30}
+Рассмотрим норму присоединённых полиномов Лежандра
+\[
+	N_{n, k}^{(m)} = \int\limits_{-1}^1 P_n^{(m)}(z)P_k^{(m)}(z)\, dz  =
+	\begin{cases}
+	    0 & n \neq k\\
+		\neq 0 &n=k
+	\end{cases}
+\]
+
+\[
+    N_{n, k}^{(m)} = \int\limits_{-1}^1 (1 -z^2) \der{}{z}{m} (P_n) (1 - z^2)^\frac{m}{2} \der{}{z}{m} (P_k) \, dz = \int\limits_{-1}^1 \underbrace{(1 - z^2)^m \der{}{z}{m} P_n(z)}_\text{u} \cdot \underbrace{\der{}{z}{m} P_k(z)}_\text{dv} \, dz
+\]
+Интегрируем по частям
+\begin{align*}
+    &v = \der{}{z}{m - 1} P_k(z)\\
+    &du = \der{}{z}{} \left[(1 - z^2)^m \der{}{z}{m} P_n(z) \right]
+\end{align*}
+
+%\begin{equation}
+%    (1 - z^2) \derp{y}{z}{m+2} - 2 (m + 1) z \der{y}{z}{m+1} + \left[n(n + 1) - m(m + 1) \right] \der{y}{z}{m} = 0
+%	\label{equ:ort1}
+%\end{equation}
+
+%\begin{equation}
+%    P_n^{(m)} = (1 - z^2)^\frac{m}{2} \der{}{z}{m} P_n(z)
+%	\label{equ:ort2}
+%\end{equation}
+
+\begin{multline*}
+    \int\limits_{-1}^1 (1 - z^2)^m \der{}{z}{m} P_n(z) \der{}{z}{m}P_k(z) \,dz = \\ =\left. (1 - z^2)^m \der{}{z}{m} P_n (z) \der{}{z}{m - 1} P_k(z) \right|_{-1}^1 - \int\limits_{-1}^1 \der{}{z}{} \left[ (1 - z^2)^m \der{}{z}{m} P_n(z)\right] \der{P_k(z)}{z}{m - 1} \, dz
+\end{multline*}
+Оставшийся интеграл подставим в \eqref{equ:LejandrAtt3} и умножим на $(1 - z^2)$:
+\[
+	(1 - z^2)^m \der{}{y}{m + 2} - 2 (m + 1)z (1 - z^2)^m \der{}{y}{m + 1} + (1 - z^2)^m [n (n + 1) - m (m + 1)] \derp{y}{z}{m} = 0
+\]
+
+\begin{equation}
+     \der{}{z}{} \left\{ (1 - z^2)^m \der{}{y}{m + 1} \right\} = - (1 - z^2)^m \left[ n(n + 1) - m(m +1) \right] \der{y}{z}{m}
+	 \label{equ:ort3}
+\end{equation}
+Перепишем формулу \eqref{equ:ort3} $m = m' + 1 \Rightarrow m' = m - 1$
+
+\begin{equation*}
+     \der{}{z}{} \left\{ (1 - z^2)^m \der{}{y}{m} \right\} = - (1 - z^2)^{m-1} \left[ n(n + 1) - m(m - 1) \right] \der{y}{z}{m - 1}
+\end{equation*}
+
+\[
+    n^2 + n - m^2 + m = (n + m) + (n^2 - m^2) = (n + m)(n - m + 1)
+\]
+
+\begin{multline*}
+    N_{n,k}^{(m)} = \int\limits_{-1}^1 (1 - z^2)^{m} \der{}{z}{m} P_n(z ) \der{}{z}{m} P_k (z) \, dz =\\= \int\limits_{-1}^1 (1 - z^2)^{m - 1} \left[(n + m) (n - m + 1) \der{P_n(z)}{z}{m - 1}\right] \der{P_k(z)}{z}{m - 1}\, dz = \\ = [(n + m (n - m + 1))] \int\limits_{-1}
+^1 (1 - z^2)^{m - 1} \der{}{z}{m - 1} P_n(z) \der{}{z}{m - 1} P_k(z) \, dz = \\ = [(n + m)(n - m + 1)]N_{n,k}^{(m - 1)} = (n + m) (n - m + 1) (n - m +2) N_{n, k}^{m - 2} = \\ = (n + m)(n + m - 1)\ldots (n + 1) (n - m + 1) (n - m + 2)\ldots n N_{n,k}^{(0)}
+\end{multline*}
+Вспомним определение факториала
+\[
+	n! = 1 \cdot 2 \cdot 3 \ldots n
+\]
+\[
+   \frac{n(n - 1)(n + 2) \ldots (n - m + 2) (n - m + 1) (n - m) (n - m + 1)}{(n - m)(n - m - 1)} = \frac{n!}{(n - m)!}
+\]
+
+\[
+    \frac{(n + m) ( \ldots) (n + 1) \ldots (n) (n - 1) \dots 1}{n (n - 1) \ldots 1} = \frac{(n + m)!}{n!} = \frac{n!}{(n - m)!}
+\]
+\[
+	N_{n,k}^{(m)} = \frac{(n + m)! n!}{(n - m)!n!} N_{n, k}^{(0)}
+\]
+Окончательно получаем:
+\begin{equation}
+    N_{n,k}^{(m)} = \int\limits_{-1}^1 (1 - z^2)^m \der{}{z}{m} P_n(z) \der{}{z}{m} P_k (z) \, dz = \frac{(n + m)! }{(n - m)! } N_{n,k}^{(0)}
+\end{equation}
+Используя свойство ортогональности
+\[
+    \int\limits_{-1}^1 P_n^{(m)} (z) P_k^{(m)} \, dz = 
+	\begin{cases}
+	    0 &k \neq m\\
+	\frac{2}{2n + 1} &k=m
+	\end{cases}
+\]
+последнее равенство может быть представлено так:
+\begin{equation}
+    N_{n,k}^{(m)} = \frac{(n + m)! }{(n - m)! } \frac{2}{2n + 1}, \qquad \text{если}\quad m = k
+\end{equation}

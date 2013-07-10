@@ -1,0 +1,156 @@
+Рассмотрим задачу:\\
+\[
+	\derp{u}{t}{} = a^2 \derp{u}{x}{2} \quad x \in (x_1, x_2)
+\]
+\begin{alignat*}{2}
+	x &= 0 &\quad \lambda \derp{u}{x}{} &= \alpha_1 (u - u_0) \quad u_0, u_1 = const\\
+	x &= l &\quad \lambda \derp{u}{x}{} &= - \alpha_2 (u - u_1)
+\end{alignat*}
+
+Рассмотрим граничные условия:
+\begin{multicols}{2}
+
+\begin{alignat*}{2}
+     x &= 0 &\quad u_0 > u : \derp{u}{x}{} < 0\\
+            &&\quad u_0 < u : \derp{u}{x}{} > 0\\
+     x &= l &\quad u_1 > u : \derp{u}{x}{} > 0 \\
+            &&\quad u_1 < u : \derp{u}{x}{} < 0
+\end{alignat*}
+
+\[
+	\quad u - u_1 > 0 
+\]
+\[
+	\quad u - u_1 < 0
+\]
+\[
+	\Rightarrow - \alpha_2
+\]
+\end{multicols}
+
+В данной задаче граничные условия неоднородные.\\
+Необходимо свести задачу к задаче с однородными граничными условиями:\\
+\[
+	v (x, t) = u(x, t) + A + Bx
+\]
+\[
+	u = v - A - Bx
+\]
+\[
+	x = 0 \Rightarrow \lambda \left[\derp{v}{x}{} - B \right] = \alpha_1 (v - A - B \cdot 0 - u_0)
+\]
+\[
+	\lambda \derp{v}{x}{} = \alpha_1 v - \alpha_1 A +\lambda B - \alpha_1 u_0
+\]
+\[
+	\lambda B - \alpha_1(A + u_0) = 0\
+\]
+\[
+	x = l \Rightarrow \lambda \left[\derp{v}{x}{} - B \right] = - \alpha_2 (v - A - u_1 + Bl)\
+\]
+\[
+	\lambda \derp{v}{x}{} = \lambda B + \alpha_2 (A + u_1) - \alpha_2 v + Bl \alpha_2\
+\]
+\[
+	\lambda B - \alpha_1 (A + u_0) = 0\
+\]
+\[
+	B (\lambda + \alpha_2 l) + \alpha_2 A = - \alpha_2 u_1\
+\]
+\[
+	t = 0 \quad v - A - Bx = f(x) \Rightarrow v = f(x) + A Bx = \varphi(x)\
+\]
+
+В итоге получаем:\\
+\[
+	\derp{v}{t}{} = a^2 \derp{v}{x}{2}\
+\]
+
+	\begin{alignat*}{2}
+	    t &= 0 &\quad v(0, x) &= \varphi (x)\\
+	    x &= 0 &\quad \lambda \derp{v}{x}{} &= \alpha_1 v\\
+	    x &= l &\quad \lambda \derp{v}{x}{} &= - \alpha_2 v\\
+	\end{alignat*}
+
+Пусть $v(x, t) = X(x) Y(t)$\\
+	
+
+\[
+	\frac{X''}{X} = a^2 \frac{Y'}{Y} = - k_n^2, \quad k_n > 0 
+\]
+\[
+	X'' + K_n^2 X = 0 \Rightarrow X(x) = C_1 \sin k_n x + C_2 \cos k_n x
+\]
+\[
+	\lambda \der{}{x}{} X = \alpha_1
+\]
+\[
+	x = 0 \quad k_n \lambda (C_1 \cos k_n x - C_2 \sin k_n x) = \alpha_1 (C_1 \sin k_n x + C_2 \cos k_n x) |_{x = 0}
+\]
+\[
+	k_n \lambda  C_1 = \alpha_1 C_2
+\]
+\[
+	x = l \quad k_n \lambda ( C_1 \cos k_n l - C_2 \sin k_n l) = - \alpha_2 (C_1 \sin k_n l + C_2 \cos k_n l)
+\]
+\[
+	C_1(\lambda k_n \cos k_nl + \alpha_2 \sin k_n l) = C_2 (k_n \lambda \sin k_nl - \alpha_2 \cos k_n l)
+\]
+\[
+	- (k_n \lambda )^2 \sin k_n l + \alpha_2  k_n \lambda \cos k_n l + \alpha_1 k_n \lambda \cos k_n l + \alpha_1 \alpha_2 \sin k_n l = 0
+\]
+\[
+	\sin k_n l [\alpha_1 \alpha_2 - k_n^2 \lambda^2] + \cos k_n l [k_n \lambda \alpha_2 + \alpha_1 k_n \lambda] = 0
+\]
+
+\[
+	\tg k_n l = \frac{k_n \lambda (\alpha_1 + \alpha_2)}{k_n^2 \lambda^2 - \alpha_1 \alpha_2}\
+\]
+
+Из этого уравнения можно получить значения $k_n$ (счётное количество)\\
+\[
+	X(x) = C_{1n} \sin k_n x + C_{2n} \cos x k_n
+\]
+\[
+	Y(t) = C_{3n} e^{- k_n^2 a^2 t}
+\]
+\[
+	v (x, t) = \sum\limits_{n = 0}^{\infty} (C_{1n} \sin k_n x + C_{2n} \cos k_n x) e^{-k_n^2 a^2 t}
+\]
+\[
+	v(x, 0) \varphi(x)
+\]
+\[
+	C_{1n} = \frac{\int\limits_0^l \varphi(x) \sin k_n x dx}{\int\limits_0^l} \sin^2 k_n x dx
+\]
+\[
+	C_{2n} = \frac{\int\limits_0^l \varphi(x) \cos k_n x dx}{\int\limits_0^l} \cos^2 k_n x dx
+\]
+
+\[
+	\derp{v}{t}{} = a^2 \derp{v}{x}{2}\
+\]
+	\begin{alignat*}{2}
+		t &= 0 &\quad u(x, 0) &= f(x)\\
+		x &= 0 &\quad u(0, t) &= \varphi(t)\\
+		x &= l &\quad u(l, t) &= \xi(t)			
+	\end{alignat*}
+Допустим $u_1 (x, t)$ - решение задачи.
+Рассмотрим возмущённую правую часть:\\
+	\begin{alignat*}{2}
+		t &= 0 &\quad u(x, 0) &= f(x) + \varepsilon_1\\
+		x &= 0 &\quad u(0, t) &= \varphi(t) + \varepsilon_2\\
+		x &= l &\quad u(l, t) &= \xi(t) + \varepsilon_3\\
+	\end{alignat*}
+И рассмотрим разность решений $v = u_1 - u_2$\\
+По теореме о максимуме: 
+\[
+	n_{max} = max(\abs{v}|_{t=0}, \abs{v}|_{x=0}, \abs{v}|_{x=l})
+\]
+то есть 
+\[
+	\abs{v} \leqslant v_{max} = max(\varepsilon_1, \varepsilon_2, \varepsilon_3) = \varepsilon
+\]
+\[
+	- \varepsilon \leqslant v \leqslant \varepsilon\
+\]

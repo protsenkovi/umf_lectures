@@ -1,0 +1,50 @@
+Уравнением с частными производными 2-го порядка с двумя независимыми переменными $x$, $y$ называется соотношение между неизвестной функцией $u(x, y)$ и её частными производными до 2-го порядка включительно:
+\[
+	F(x, y, u, \derp{u}{x}{}, \derp{u}{y}{}, \derp{u}{x}{2}, \derps{u}{x}{y} ,\derp{u}{y}{2}) = 0
+\]
+Уравнение называется \textit{линейным относительно старших производных}, если оно имеет вид
+\begin{equation} 
+	\label{equ:der} 
+	a\, \derp{u}{x}{2}+ 2 b\, \derps{u}{x}{y} +c\, \derp{u}{y}{2} + F(x, y, \derp{u}{x}{}, \derp{u}{y}{}) = 0
+\end{equation}
+где коэффициенты $a, b, c$ являются функциями от $x$, $y$.\\
+
+Если коэффициенты $a, b, c$ зависят не только от $x$ и $y$, а являются, подобно $F$, функциями $x, y, z, u_x, u_y$, то такое уравнение называется \textit{квазилинейным}.\\
+
+Уравненение называется \textit{линейным}, если оно линейно как относительно старших производных $u_{xx}, u_{xy}, u_{yy}$, так и относительно функции $u$ и её первых производных $u_x$, $u_y$\footnote{\[u_x = \derp{u}{x}{} \quad u_y = \derp{u}{y}{} \quad u_{xx} = \derp{u}{x}{2} \quad u_{xy} = \derps{u}{x}{y} \quad u_{yy} = \derp{u}{y}{2}\]}
+\[
+	a_{11} u_{xx} + 2 a_{12} u_{xy} + a_{22} u_{yy} + b_1 u_x + b_2 u_y + c u + f = 0
+\]
+
+Уравнение называется \textit{однородным}, если $f(x, y) = 0$.\\
+
+
+В уравнении \eqref{equ:der} сделаем замену $\xi = \varphi(x,y)$ $\eta = \psi(x,y)$.
+
+\[
+	\bar{a}\, \derp{u}{\xi}{2} + 2 \bar{b}\, \derps{u}{\xi}{\eta} + \bar{c}\, \derp{u}{\eta}{2} + \bar F = 0
+\]
+где
+\begin{align*} \setlength\itemsep{0pt}			
+	&\bar{a} = a\, \left( \derp{\xi}{x}{}\right)^2 + 2 b\, \derp{\xi}{x}{} \derp{\xi}{y}{} + c\, \left( \derp{\xi}{y}{} \right)^2\\
+	&\bar{b} = a\, \derp{\xi}{x}{} \derp{\eta}{x}{}+ b\, \left(\derp{\xi}{x}{} \derp{\eta}{y}{} + \derp{\eta}{x}{} \derp{\xi}{y}{} \right)+ c\, \derp{\xi}{y}{} \derp{\eta}{y}{}\\
+	&\bar{c} = a\, \left( \derp{\eta}{x}{} \right)^2 + 2 b\, \derp{\eta}{x}{} \derp{\eta}{y}{}  + c\, \left( \derp{\eta}{y}{} \right)^2\\
+\end{align*}
+а функция $\bar F$ не зависит от вторых производных.
+
+	\begin{equation}
+		\label{equ:characteristical} 
+			a\, dy^2- 2 b\, dy dx + c\, dx^2 = 0 
+		\end{equation}
+		Уравнение \eqref{equ:characteristical} называется \textit{характеристическим уравнением}, а решения этого уравнения называются \textit{характеристиками}.\\
+
+		Пусть $\xi(x, y) = C = 0 \Rightarrow \bar{a} = 0$. Также если $\psi(x, y) = C = 0 \Rightarrow \bar{c} = 0$\\
+		Уравнение \eqref{equ:characteristical} распадается на два:
+		\begin{equation} \label{equ:characteristical2} \left(\frac{dy}{dx}  \right)_{1,2}= \frac{b \pm \sqrt{b^2 - ac}}{a}\end{equation}
+
+		Знак подкоренного выражения определяет тип уравнения:\\
+		$\begin{aligned}
+			&D > 0 \mbox{ -- \textbf{Гиперболического типа}}\quad &\mbox{Канонический вид:} &\quad \derps{u}{x}{y} = F(x, y, u, \derp{u}{x}{}, \derp{u}{y}{})\\
+			&D = 0 \mbox{ -- \textbf{Параболического типа} }\quad &\mbox{Канонический вид:} &\quad \derp{u}{x}{2} + \derp{u}{y}{2} = F(x, y, u, \derp{u}{x}{}, \derp{u}{y}{})\\ 
+			&D < 0 \mbox{ -- \textbf{Эллиптичеcкого типа}  }\quad &\mbox{Канонический вид:} &\quad \derp{u}{y}{2} = F(x, y, u, \derp{u}{x}{}, \derp{u}{y}{})\\
+		\end{aligned}$

@@ -1,0 +1,107 @@
+\[
+	\derp{u}{t}{2} = a^2 \derp{u}{x}{2}
+\]
+\[
+	X \in R \quad \derp{u}{t}{} (x, 0) = \varphi(x)
+\]
+	Характеристиками уравненения являются:\
+\begin{align*}
+	&\xi = x - at - C_1\\
+	&\eta = x + at = C_2\\
+\end{align*}
+\[
+	\derp{u}{t}{} = a \derp{u}{\eta}{} - a \derp{u}{\xi}{} \quad \derp{u}{t}{2} = a^2 \derp{u}{\eta}{2} - 2 a^2 \derps{u}{\xi}{\eta} + a^2 \derp{u}{\xi}{2}
+\]
+\[
+	\derp{u}{x}{} =\derp{u}{\xi}{} + \derp{u}{\eta}{} \quad \derp{u}{x}{2} = \derp{u}{\xi}{2} + 2 \derps{u}{\xi}{\eta} + \derp{u}{\eta}{2}
+\]
+\[
+	4 a^2 \derps{u}{\xi}{\eta} = 0
+\]
+\[
+	\derps{u}{\xi}{\eta} = 0
+\]
+Интегрируем:
+\[
+	\derp{u}{\eta}{} = \varphi \quad \derp{\varphi}{\xi}{}
+\]
+\[
+	\varphi =V(\eta) \quad \derp{u}{\eta}{} = V(\eta)
+\]
+\[
+	u = \int\limits_{\eta_0}^{\eta} V(\tau) d \tau + \xi (\xi)
+\]
+\[
+	u(\xi, \eta) = \varphi(\eta) + \xi (\xi)
+\]
+\[
+	u(x,t) = \varphi (x +at) + \xi (x - at)
+\]
+Решение задачи называется корректным если оно существует, единственно и устойчиво.\\
+
+\textbf{Существование}\\
+	$\varphi(x +at)$ и $\xi(x - at)$ - должны допускать непрерывные частные производные.\\
+
+\textbf{Единственность}\\
+	Пусть $u(x, t) = \varphi_1 (x + at) + \xi_1 (x - at)$\\
+\begin{equation}
+	u(x, 0) = \varphi (x) + \xi(x) = f(x)
+	\label{equ:wave1}
+\end{equation}
+\[
+	\derp{u}{t}{} (x, 0) = a \varphi'(x) - a \xi' (x) = g(x)
+\]
+\begin{equation}
+	a \varphi(x) - a \xi(x) = \int\limits_{x_0}^{x} g(\tau) d \tau  
+	\label{equ:wave2}
+\end{equation}
+\eqref{equ:wave1} и \eqref{equ:wave2} - СЛАУ
+\[
+	2 \varphi(x) = f(x) + \frac{1}{a} \int\limits_{x_0}^x g(\tau) d \tau \Rightarrow \varphi(x) \frac{1}{2} f(x) + \frac{1}{2a} \int\limits_{x_0}^x g(\tau) d \tau
+\]
+\[
+	2 \xi(x) = f(x) + \frac{1}{a} \int\limits_{x_0}^x g(\tau) d \tau \Rightarrow \xi(x) \frac{1}{2} f(x) + \frac{1}{2a} \int\limits_{x_0}^x g(\tau) d \tau
+\]
+\[
+	u(x, t) = \frac{f(x + at) + f(x - at)}{2} + \frac{1}{2a} \int\limits_{x - at}^{x + at} g (\tau) d \tau
+\]
+Если проделать то же самое для $u$, то получится то же самое.\\
+
+\textbf{Устойчивость}\\
+Рассмотрим решение возмущённой задачи $\tilde u$:
+\[
+	\tilde u = f(x) + \varepsilon_1 \quad \derp{\tilde u}{t}{} (x, 0) = g(x) + \varepsilon_2
+\]
+\[
+	\abs{u(x, t) - \tilde u (x, t)} \leq \abs{\varepsilon_1} + \frac{1}{2a} \int\limits_{x - at}^{x + at} \varepsilon_2 \leq \sigma(1 + t) \Rightarrow
+\]
+$\Rightarrow$ можно подобрать $\sigma: \sigma \leq \frac{\varepsilon}{1 + t}$\\
+		
+\subsection{Пример некорректно поставленной задачи}
+Рассмотрим пример некорректно поставленной задачи:\\
+\[
+	\derp{u}{t}{2} + \derp{u}{x}{2} = 0, \quad u(x, 0) = ?, \quad \derp{u}{t}{} = 0
+\]
+\[
+	u(x, t) = \frac{1}{\lambda} \sin \lambda x \ch \lambda t
+\]
+\[
+	\derp{u}{t}{2} = \lambda \sin \lambda x \ch \lambda t \quad \derp{u}{x}{2} = - \lambda \sin \lambda x \ch \lambda t
+\]
+\[
+	u(x, 0) = \frac{\sin \lambda x}{\lambda} \quad \derp{u}{t}{} (x, 0) = \sin \lambda \sh \lambda = 0
+\]
+\[
+	\lambda \to \infty \Rightarrow u(x, 0) \to 0
+\]
+Тогда, $u_1 = 0$ - решение уравнения:\\
+\[
+	\abs{u(x, 0)- u_1(x,0)} < \sigma
+\]
+\[
+	\abs{\derp{u}{t}{} (x, 0) - \derp{u_1}{t}{}} < \sigma
+\]
+\[
+	\abs{u(x, t) - u_1(x, t)} = \abs{\frac{1}{\lambda} \sin \lambda x \frac{e^{\lambda t} + e ^{- \lambda t}}{2}}
+\]
+сколь угодно большое число.

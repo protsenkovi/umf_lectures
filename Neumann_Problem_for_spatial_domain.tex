@@ -1,0 +1,97 @@
+В отличие от задачи Дирихле на границе задаётся нормальная производная. В задаче Неймана на $f$ накладываются ограничения. То есть не при любых значениях $f$ задача имеет решения.\footnote{Вспомним\\
+Первая формула Грина \[
+	\iint\limits_S u \derp{v}{u}{} dS = \iiint\limits_{W} u \Delta v d S - \iint\limits\limits_S \nabla u \nabla v\, dS
+\]
+Вторая формула Грина \[
+	\iint\limits_S \left( u \derp{v}{n}{} - v \derp{u}{n}{}\right) dS = \iiint\limits_{W} (u \Delta v - v \Delta u)\, d \omega
+\]
+Третья формула Грина \[
+	u(x_0, y_0, z_0) = \frac{1}{4 \pi} \iint\limits_S f \derp{G}{n}{}\, dS \quad \Delta v = 0
+\]}\\
+%\[
+%	\Delta u = 0
+%\]
+%\[
+%	\derp{u}{n}{} \Big|_S = f
+%\]
+%Найдём ограничения. Воспользуемся формулой Грина. Формула Грина верна для любых непрерывно %дифференциируемых $u$ и $v$, то мы возьмём как частный случай 1. 
+%\[
+%	v = 1 \quad \Rightarrow \derp{v}{n}{} = 0 
+%\]
+%\[
+%	- \iint\limits_{\omega}  u d \omega = - \iint\limits_S \derp{u}{n}{} dS
+%\]
+%Задача Неймана имеет решение, если выполняется $\iint\limits_{S} \derp{u}{n}{} dS = 0 \quad  \iint\limits_S f dS = 0$
+
+%\[
+%	u(x_0, y_0, z_0) = \frac{1}{4 \pi} \iint\limits_S f G dS
+%\]
+%\[
+%	\left. G = \frac{B}{r_{A*P}} - \frac{1}{r_{AP}} \derp{G}{r}{} \right|_{r = R} = 0
+%\]
+%\[
+%	\derp{G}{r}{} = - \left[ B \frac{(r - r_* \cos\xi)}{\frac{R_0^3}{r_0^3} r_{A*P}^3} + \frac{(r - r_0 \cos \xi)}{r_{AP}^3}\right]_{r = R} = 0
+%\]
+
+%\[r_{A*P} = \frac{R}{r_0} r_{AP} \quad r = R \] 
+
+
+
+Задача Неймана на границе задаётся нормальной производной
+\[
+	\Delta u = 0 \quad v = G \quad  \Delta G = 0
+\]
+На границе u нам неизвестно. \\
+\[
+	\Delta u = 0
+\]
+\[
+	\left. \derp{u}{n}{} \right|_S = f
+\]
+
+Мы можем решать задачу только при  $v=1; \quad - \iint\limits_S \derp{u}{n}{} dS = 0 \quad \iint\limits_S f dS = 0$
+\[
+	G = W - \frac{1}{r_{AP}} = \frac{B}{r_{AP}} - \frac{1}{r_{AP}}
+\]
+\[
+	r_{AP} = \sqrt{r^2 + r_0^2 - 2 r r_0 \cos \psi}
+\]
+\[
+	r_{A^2P} = \sqrt{r^2 + r_*^2 - 2 r r_* \cos \psi}
+\]
+\[
+	\left. \derp{G}{n}{} = \derp{G}{r}{} = - \frac{B}{r_{A_*^2P} \derp{r_{A*P}}{r}{} + \frac{1}{r_{AP}}} \derp{r_{AP}}{r}{} \right|_{r = R} = 0
+\]
+
+\[
+	\left. - \frac{B}{\frac{R^3}{r_0^3} r_{AP}^3} (R - r_* \cos \psi) + \frac{r - r_0 \cos \psi}{r_{AP}^3} \right|_{r = R} = 0
+\]
+Отсюда $B = \varphi(\psi)$.\\
+Требовать на границе равной нулю производной мы не можем, потому, что в таком случае мы не сможем решить задачу.\\
+Задача Неймана имеет решение с точностью до аддитивной составляющей(прибавлять константу).\\
+Если воспользовать представлением функции Грина в виде разности , то потребовав \[
+	\left. \derp{G}{n}{} \right|_S = 0 \Rightarrow \left. \derp{W}{n}{} \right|_S = \derp{}{n}{} \left( \frac{1}{r_{AP}}\right)
+\]
+\[
+	\Delta W = 0
+\]
+\[
+	\left. \derp{W}{n}{} \right|_S =  \left( \frac{1}{r_{AP}}\right)
+\]
+\[
+	\iint\limits_S \frac{W}{n} = 0 \quad \iint\limits_S  \left( \frac{1}{r_{AP}}\right) = 0
+\]
+Вернёмся к третьей формуле Грина:\\
+\[
+	1 = \frac{1}{4 \pi} \iint \Delta \derp{v}{n}{} dS = 0
+\]
+Таким образом нужно приравнять к константе.
+\[
+	\left. \derp{G}{n}{} \right|_S = C
+\]
+Тогда \[
+	u(x_0, y_0, z_0) = \frac{1}{4 \pi} \iint\limits_S u C dS - \frac{1}{4 \pi} \iint\limits_S G f dS = \frac{C}{4 \pi} \iint\limits_{S}G f dS
+\]
+\[
+	\frac{C u_{middle}}{\cancel{4 \pi}} \cancel{4 \pi} R^2 \quad C = \frac{1}{R^2}
+\]

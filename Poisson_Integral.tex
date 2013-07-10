@@ -1,0 +1,79 @@
+С помощью преобразований \eqref{equ:equSolveDirihletProblemRow} получим решение в виде \textit{интеграла Пуассона}.
+
+Подставляя выражения для кожффициентов Фурье в формулу \eqref{equ:equSolveDirihletProblemRow} и меняя порядок суммирования и интегрирования, будем иметь:
+\begin{multline}
+	u(\theta, r) = \frac{1}{\pi} \int\limits_{-\pi}^{\pi} f(\psi) \left\{ \frac{1}{2} + \sum\limits_{n = 1}^{\infty} \left(\frac{r}{R} \right)^n (\cos n \psi \cos n \theta + \sin n \psi \sin n \theta) \right\} \, d \psi = \\
+	=  \frac{1}{\pi} \int\limits_{-\pi}^{\pi} f(\psi) \left\{ \frac{1}{2} + \sum\limits_{n = 1}^{\infty} \left(\frac{r}{R} \right)^n \cos n(\theta - \psi) \right\} \, d \psi 
+	\label{equ:equPoisson1}
+\end{multline}
+
+Произведём следующие тождественные преобразования:
+\begin{align*}
+	\frac{1}{2} + \sum\limits_{n = 1}^{\infty} t^n \cos n (\theta - \psi) &= \frac{1}{2} + \frac{1}{2} \sum\limits_{n = 1}^{\infty} t^n \left[e^{in(\theta - \psi)} + e^{-in(\theta - \psi)}\right] = \\
+	&= \frac{1}{2}\left\{1 + \sum\limits_{n = 1}^{\infty} [\left(t e^{i(\theta - \psi)}\right)^n + \left(t e^{-i(\theta - \psi)}\right)^n] \right\} =\\
+	&= \frac{1}{2} \left[ 1 + \frac{t e^{i(\theta - \psi)}}{1 - t e^{i(\theta - \psi)}}  + \frac{t e^{-i(\theta - \psi)}}{1 - t e^{-i(\theta - \psi)}}\right] = \\
+	&= \frac{1}{2} \frac{1 - t^2}{1 - 2t \cos(\theta - \psi) + t^2} &\left(t = \frac{r}{R} < 1 \right).
+\end{align*}
+Подставляя полученные результаты в равенство \eqref{equ:equPoisson1}, получаем:
+\begin{equation}
+	u (\theta, r) = \frac{1}{2 \pi} \int\limits_{- \pi}^{\pi} f(\psi) \frac{R^2 - r^2}{r^2 - 2  r R \cos (\theta - \psi) + R^2} \, d \psi
+	\label{equ:PuassonInt}
+\end{equation}
+Полученная формула, дающая решение первой краевой задачи внутри круга, называется \textit{интегралом Пуасссона}, подинтегральное выражение 
+\[
+	K(r, \theta, R, \psi) = \frac{R^2 - r^2}{r^2 - 2 r  R \cos (\theta - \psi) + R^2}
+\]
+-- \textit{ядром Пуассона}.
+
+%Домножим на $\cos m \theta \, d \theta$ и проинтегрируем в пределах от $0$ до $2 \pi$
+%\[
+%	\int\limits_{0}^{2\pi} f (\theta) \cos m \theta d \theta = \int\limits_{0}^{2 \pi} C_{10} \cos m \theta d \theta + \sum\limits_{n = 1}^{\infty}  \left[ \int\limits_{0}^{2 \pi} C_{1n} \cos n \theta \cos m \theta d \theta +  \int\limits_{0}^{2 \pi} C_{2n} \sin n \theta \cos m \theta d \theta \right]
+%\]
+%\[
+%	\int\limits_{0}^{2 \pi} \cos n \theta \cos m \theta d \theta = \begin{cases} 0 & n \neq m\\ \int\limits_{0}^{2 \pi} \cos^2 m \theta d \theta = \int\limits_{0}^{2 \pi} \frac{1 + \cos m \theta}{2} d \theta& n = m  \end{cases}
+%\]
+%\[
+%	u(\theta, r) = \frac{1}{2 \pi} \int\limits_{0}^{2 \pi} f (\theta) d \theta + \frac{1}{2 \pi} \sum\limits_{n = 1}^{\infty} \int\limits_{0}^{2 \pi}[ f (\varphi) \cos n \varphi d \varphi \cos n \theta + \int\limits_{0}^{2\pi} f(\varphi) \sin n \varphi d \varphi \sin n \theta ] \frac{r^n}{R^n}
+%\]
+%$u(\theta, r) = \frac{1}{2 \pi} \int\limits_{0}^{2 \pi} f(\theta) d \theta + \frac{1}{\pi} \sum\limits_{n = 1}^{\infty} \int\limits_{0}^{2 \pi} f()\varphi [\cos n \varphi \cos n \theta + \sin n \varphi \sin n \theta] d \theta \frac{r^n}{R^n}$ \\
+
+%$\left[
+%\int\limits_{0}^{2 \pi} f (\theta) d \theta = c_{10} R^n 2 \pi \\
+%\int\limits_{0}^{2 \pi} f (\theta) \cos m \theta d \theta = c_{1n}* \int\limits_{0}^{2 \pi} \cos^2 m \theta d \theta R^n\\
+%c_{1n}* = \frac{1}{\pi R^n} \int\limits_{0}^{2 \pi} f(\theta) \cos m \theta d \theta\right]$\\
+
+%\[
+%	u(\theta, r) = \frac{1}{2 \pi} \int\limits_{0}^{2 \pi} f(\theta) d \theta + \frac{1}{\pi} \int\limits_{0}^{2 \pi} f(\varphi) \sum\limits_{n = 1}^{\infty} \cos n (\varphi - \theta) \cdot \frac{r^n}{R^n} d \varphi
+%\]
+
+
+%\[
+%	e^{ix} = \cos x + i \sin x \quad \cos(\varphi - \theta) = \Re (e^{i n (\varphi - \theta)})
+%\]
+%\[
+%	\cos x = \frac{e^{ix} + e^{-ix}}{2}
+%\]
+%\[
+%	\sum\limits_{n = 1}^{\infty} \cos n (\varphi - \theta) \cdot \frac{r^n}{R^n} d \varphi = \Re \sum\limits_{n = 1}^{\infty} \left[ \frac{r}{R} e^{i(\varphi - \theta)}\right]^n
+%\]
+%\[\frac{r}{R e^{i (\varphi - \theta)}} = q\]
+%\[r \leq R\]
+%\[\abs{e^{i(\varphi - \theta)}} \leq 1 \quad \abs{q} < 1\]
+
+%Наш ряд принимает вид\\
+%\[S = \sum\limits_{n = 1}^{\infty} q^n = q + q^2 + q^3 + \cdots + q^n + \cdots\]
+%\[S q =  q^2 + q^3 + \cdots + q^n + \cdots \]
+%\[S - S q = q \quad S = \frac{q}{1 - q}\]
+%\begin{multline*}
+%	\sum\limits_{n = 1}^{\infty} \left( \frac{r}{R} e^{i (\varphi - \theta)}\right)^n = \frac{\frac{r}{R} e^{i (\varphi - \theta)}}{1 - \frac{r}{R} e^{i(\varphi - \theta)}} = \\
+%	= \frac{\frac{r}{R} (\cos (\varphi - \theta) - i \sin (\varphi - \theta)) (1 - \frac{r}{R} [\cos (\varphi - \theta) - i \sin (\varphi - \theta)])}{[1 - \frac{r}{R} [\cos (\varphi - \theta) + i \sin (\varphi - \theta)]] [1 - \frac{r}{R} [\cos (\varphi - \theta) - i \sin (\varphi - \theta)]]} \\
+%	\left[ [1 - \frac{r}{R} \cos (\varphi - \theta)]^2 + [\frac{r}{R}\sin (\varphi - \theta)]^2 \right] \\
+%	 = \frac{\frac{r}{R} [\cos (\varphi - \theta)] [1 - \frac{r}{R} \cos (\varphi - \theta)] + \frac{r}{R} \sin (\varphi - \theta) \frac{r}{R} \sin(\varphi - \theta) }{[1 - \frac{r}{R} \cos (\varphi - \theta)]^2 + [\frac{r}{R}\sin (\varphi - \theta)]^2}
+%\end{multline*}
+
+%\[\Re \sum\limits_{n = 1}^{\infty} \left[\frac{r}{R} e^{i (\varphi - \theta)} \right]^n = \frac{\frac{r}{R} \cos(\varphi - \theta) - \frac{r^2}{R^2} \cos^2 (\varphi - \theta) + \frac{r^2}{R^2} \sin^2 (\varphi - \theta)}{ 1 - }\]
+
+%\[u(\theta, r) = \frac{1}{2 \pi} \int\limits_{0}^{2 \pi} f(\theta) d \theta + \frac{1}{\pi} \int\limits_{0}^{2 \pi} f (\varphi) \frac{\frac{R}{r} \cos (\varphi - \theta) - \cos 2 (\varphi - \theta)}{\frac{R^2}{r^2} - 2 \frac{R}{r} \cos (\varphi - \theta) + 1} d \varphi\]
+
+
+

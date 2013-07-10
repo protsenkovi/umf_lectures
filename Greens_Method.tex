@@ -1,0 +1,112 @@
+Интегральное представление гармонических функций является основным аппаратом для изучения свойств гармонических функций. Одним из важнейших следствий интегральной формулы является принцип максимального значения, часто используемый при решении краевых задач и доказательстве теоремы единственности. \\
+
+\subsubsection{Вывод формул}
+Формулы Грина являются прямым следствием формулы Остроградского.
+	Формула Остроградского в простейшем случае имеет вид
+
+\begin{equation}
+	\iiint\limits_W \derp{R}{z}{}\, dx\, dy\, dz = \iint\limits_S R \cos \gamma\, d\sigma
+	\label{equ:equOstrograd}
+\end{equation}
+где $W$ -- некоторый объём, ограниченный достаточно гладкой поверхностью $S$, $R(x, y, z)$ -- произвольная функция, непрерывная внутри $W + S$ и имеющая непрерывные производные внутри $W$, $\gamma$ -- угол между направлением оси $z$
+ и внешней нормалью к $S$. В справедливости этой формулы нетрудно убедиться, проинтегрировав по $z$.\\
+
+    Формулу Остроградского обычно записывают в виде
+\begin{equation}
+	\iiint\limits_W\left( \derp{a_x}{x}{} + \derp{a_y}{y}{} + \derp{a_z}{z}{}\right) \, d \tau = \iint\limits_S \left\{ a_x \cos \alpha + a_y \cos \beta + a_z \cos \gamma \right\} \, d \sigma
+	\label{equ:equOstrograd2}
+\end{equation}
+
+	Если $a_x, a_y, a_z$ рассматривать как компоненты некоторого вектора $A = a_x i + a_y j + a_z k$, то формулу Остроградского \eqref{equ:equOstrograd2} можно записать следующим образом
+\begin{equation} 
+	\iint\limits_W \mathrm{div} \, A \, d \tau = \iint\limits_S A_n \, d \sigma
+	\label{equ:equOstrograd3}
+\end{equation}
+где
+ \[
+	\mathrm{div}  \bar A = \derp{a_x}{x}{} + \derp{a_y}{y}{} + \derp{a_z}{z}{}
+\]
+и
+\[	
+	A_n = a_x \cos \alpha + a_y \cos \beta + a_z \cos \gamma
+\]
+-- составляющая вектора $A$ вдоль внешней нормали.\\
+
+Перейдём к выводу формул Грина.\\
+Пусть $u = (x, y, z)$ и $v = v(x, y, z)$ -- функции. непрерывные вместе со своими первыми производными внутри $W + S$ и имеющие непрерывные вторые производные внутри $W$.
+
+Полагая
+\[
+	a_x = u \derp{v}{x}{} \quad	a_y = u \derp{v}{y}{} \quad a_z = u \derp{v}{z}{}
+\]
+и пользуясь формулой Остроградского \eqref{equ:equOstrograd3}, приходим к так называемой \textit{первой формуле Грина}
+\begin{equation}
+	\iiint\limits_W u \Delta v \, d\tau = \iint\limits_S \derp{v}{n}{} \, d \sigma - \iiint\limits_W \left( \derp{u}{x}{} \derp{v}{x}{} + \derp{u}{y}{} \derp{v}{y}{} + \derp{u}{z}{} \derp{v}{z}{}\right)\, d \tau
+\end{equation}
+где $\Delta = \derp{}{x}{2} + \derp{}{y}{2} + \derp{}{z}{2}$ -- оператор Лапласа, $\derp{}{n}{} = \cos \alpha \derp{}{x}{} + \cos \beta \derp{}{y}{} + \cos \gamma \derp{}{z}{}$ -- производная по направлению внешней нормали.
+	Если учеcть соотношение
+\[
+	\mathrm{grad}\,u\, \mathrm{grad}\, v = \nabla u \cdot \nabla v = \derp{u}{x}{} \derp{v}{x}{} + \derp{u}{y}{} \derp{v}{y}{} + \derp{u}{z}{} \derp{v}{z}{}
+\]
+то формулу Грина можно представить в виде
+\[
+	\iiint\limits_W u \Delta v \, d \tau = - \iiint\limits_W \nabla u \nabla v \, d \tau + \iint\limits_S u \derp{v}{n}{} \, d \sigma
+\]
+Меняя местами функции $u$ и $v$, будем иметь
+\[
+	\iiint\limits_W v \Delta u \, d \tau = - \iiint\limits_W \nabla v \nabla u \, d \tau + \iint\limits_S v \derp{u}{n}{} \, d \sigma
+\]
+Вычитая эти равенства, получаем \textit{вторую формулу Грина}
+\begin{equation}
+			\iint\limits_S \left(u \der{v}{n}{} - v \der{u}{n}{}\right) d\sigma = \iiint\limits_{W} \left(u \Delta v - v \Delta u \right) d \tau
+	\label{equ:Green1}
+\end{equation}\\
+%\[
+%	\bar A = u \left(\derp{v}{x}{} \vec i + \derp{v}{y}{} \vec j + \derp{v}{z}{} \vec k \right) - v \left(\derp{v}{x}{} \vec i + \derp{v}{y}{} \vec j + \derp{v}{z}{} \vec k \right) =			\left(u \derp{v}{x}{} - v \derp{u}{x}{} \right) \vec i + \left(u \derp{v}{y}{} - v \derp{u}{y}{} \right) \vec j + \left(u \derp{v}{z}{} - v \derp{u}{z}{} \right) \vec k
+%\]
+%\[
+%	div A = \derp{}{x}{} \left(u \derp{v}{x}{} - v \derp{u}{x}{} \right) \vec i + \derp{}{y}{} \left(u \derp{v}{y}{} - v \derp{u}{y}{} \right) + \derp{}{z}{} \left(u \derp{v}{z}{} - v \derp{u}{z}{} \right) = 			u \left( \derp{v}{x}{2} + \derp{v}{y}{2} + \derp{v}{z}{2}\right) - v  \left( \derp{u}{x}{2} + \derp{u}{y}{2} + \derp{u}{z}{2}\right) + \derp{u}{y}{}\derp{v}{x}{} - \derp{v}{x}{} \derp{u}{y}{} + \derp{u}{y}{} \derp{v}{y}{} - \derp{v}{y}{} \derp{u}{y}{} + \derp{u}{z}{} \derp{v}{z}{} - \derp{u}{z}{} \derp{v}{z}{}
+%\]
+		%Получили формулы Грина:\\
+Основная интегральная формула Грина
+\begin{equation}
+	\Omega \cdot u(A) = \iint\limits_S \left[ \frac{1}{R_{AP}} \derp{u(P)}{n_P}{}  - u (P) \derp{}{n_P}{} \left( \frac{1}{R_{AP}} \right) \right] d\sigma_P - \iiint\limits_W \frac{\Delta u (P)}{R_{AP}}\, d\tau_P
+	\label{equ:equMainGreen3d}
+\end{equation}
+где $\Omega$ принимает значения 
+
+\[
+	\Omega = \begin{cases}
+		4 \pi &\mbox{если точка}\, A\, \mbox{лежит внутри}\, W\\
+		2 \pi &\mbox{если точка}\, A\, \mbox{лежит на границе}\, S\\
+		0 & \mbox{если точка}\, A\, \mbox{лежит вне}\, W
+	\end{cases}
+\]
+
+
+Аналогичная формула существует и для гармонических функций двух независимых переменных. 
+Пусть $S$ -- область на плоскости $(x, y)$, ограниченная контуром $C$, а $n$ -- направление нормали к этому контуру, внешнее по отношению к области $S$.
+
+Полагая во второй формуле Грина $v = \ln \frac{1}{R_{AP}}$, где $R_{AP} = \sqrt{ (x - x_0)^2 + (y - y_0)^2}$ -- расстояние $P$ от $A$, получаем 
+\begin{equation}
+	\Omega \cdot u(A) = \int\limits_S \left[ \ln \frac{1}{R_{AP}} \derp{u(P)}{n_P}{}  - u (P) \derp{}{n_P}{} \left( \ln \frac{1}{R_{AP}} \right) \right] dS_P - \iint\limits_S \frac{\Delta u (P)}{\ln R_{AP}}\, dS_P
+	\label{equ:equMainGreen2d}
+\end{equation}
+где $\Omega$ принимает значения 
+
+\[
+	\Omega = \begin{cases}
+		2 \pi &\mbox{если точка}\, A\, \mbox{лежит внутри}\, S\\
+		\pi &\mbox{если точка}\, A\, \mbox{лежит на границе}\, C\\
+		0 & \mbox{если точка}\, A\, \mbox{лежит вне}\, S
+	\end{cases}
+\]
+
+
+\subsubsection{Метод Грина для задачи Дирихле в трёхмерном случае}\label{que:25}
+	\input{Green_Method_ThreeDim.tex}
+
+\subsubsection{Метод Грина для задачи Дирихле в двумерном случае}\label{que:26}
+	\input{Green_Method_TwoDim.tex}
+
+

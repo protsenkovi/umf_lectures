@@ -1,0 +1,77 @@
+\subsubsection{Общий метод}
+Всякое дифференциальное уравнение второго порядка с двумя неизвестными переменными может быть записано в виде
+\begin{equation}
+	A_{11} u_{xx} + 2 A_{12} u_{xy} + A_{22} u_{yy} + B_1 u_x + B_2 u_y + C u + f(x, y) = 0
+	\label{equ:equCannSource}
+\end{equation}
+где $A_{11}, A_{12}, A_{22}, B_1, B_2, C, f$ -- заданные функции от $x$ и $y$ (в частном случае постоянные).
+%Ему соответствует характеристическое уравнение с постоянными коэффициентами.\\
+
+С помощью соответствующего преобразования переменных уравнение приводится к одной из простейших форм:
+\[
+\begin{aligned}
+			&u_{\xi \xi} + u_{\eta \eta} b_1 u_\xi + b_2 u_\eta + c u + f = 0& \mbox{(эллиптический тип)}\\
+			&\begin{cases} u_{\xi \eta} + b_1 u_{\xi} + b_2 u_{\eta} + c u + f = 0\\
+				u_{\xi \xi} - u_{\eta \eta} + b_1 u_{\xi} + b_2 u_\eta + c u + f = 0\end{cases}& \mbox{(гиперболический тип)}\\ 
+			&u_{\xi \xi} + b_1 u_\xi + b_2 u_\eta + c u + f = 0& \mbox{(параболический тип)}\\
+\end{aligned}
+\]
+Попытаемся упростить это уравнение с помощью замены переменных
+\begin{equation}
+	\begin{cases}
+		\xi = \xi (x, y)\\
+		\eta = \eta (x, y)
+	\end{cases}
+	\label{equ:equChangeVariables}
+\end{equation}
+Здесь $\xi, \eta$ -- новые независимые переменные. Функции $\varphi$ и $\psi$, связывающие новые переменные со старыми переменными, будут подобраны позднее. Считаем, что отображение является взаимно однозначным. 
+\[
+	u(x, y) = \tilde u (\xi (x, y), \eta (x, y))
+\]
+Сделаем требуемую замену переменных
+\begin{align*}
+	&\derp{\tilde u}{x}{} = \derp{\tilde u}{\xi}{} \derp{\xi}{x}{} + \derp{ \tilde u}{\eta}{} \derp{\eta}{x}{} \hspace{2cm} \derp{\tilde u}{y}{} = \derp{ \tilde u}{\xi}{} \derp{\xi}{y}{} + \derp{ \tilde u}{\eta}{} \derp{\eta}{y}{}\\[5pt]
+	&\derp{\tilde u}{x}{2} = \derp{\tilde u}{\xi}{} \derp{\xi}{x}{2} + \derp{\tilde u}{\eta}{} \derp{\eta}{x}{2} + \left[\derp{\tilde u}{\xi}{2} \left(\derp{\xi}{y}{} \right)^2 + 2 \derps{\tilde u}{\xi}{\eta} \derp{\xi}{x}{} \derp{\eta}{x}{} + \derp{\tilde u}{\eta}{2} \left(\derp{\eta}{x}{} \right)^2 \right]\\[5pt]
+	&\derp{\tilde u}{y}{2} = \derp{\tilde u}{\xi}{} \derp{\xi}{y}{2} + \derp{\tilde u}{\eta}{} \derp{\eta}{y}{2} + \left[\derp{\tilde u}{\xi}{2} \left( \derp{\xi}{y}{}\right)^2 + 2 \derps{\tilde u}{\xi}{\eta} \derp{\xi}{y}{} \derp{\eta}{y}{} + \derp{\tilde u}{\eta}{2} \left(\derp{\eta}{y}{} \right)^2 \right]\\[5pt]
+	&\derps{\tilde u}{x}{y} = \derp{\tilde u}{\xi}{} \derps{\xi}{x}{y} + \derp{\tilde u}{\eta}{} \derps{\eta}{x}{y} + \left[\derp{\tilde u}{\xi}{2} \derp{\xi}{x}{} \derp{\xi}{y}{} + \derps{\tilde u}{x}{y} \left(\derp{\xi}{x}{}\derp{\eta}{y}{} + \derp{\xi}{y}{} \derp{\eta}{x}{}\right) + \derp{\tilde u}{\eta}{2} \derp{\eta}{x}{} \derp{\eta}{y}{} \right]	
+	%&\derp{u}{x}{2} = \derp{u}{\xi}{2} \left( \derp{\xi}{x}{} \right)^2 + 2 \derps{\tilde u}{\xi}{\eta} + \derp{\tilde u}{\eta}{2} \left(\derp{\eta}{x}{} \right)^2\\[5pt]
+	%&\derp{u}{y}{2} = \derp{\tilde u}{\xi}{2} \left( \derp{\xi}{y}{} \right)^2 + 2 \derps{\tilde u}{\xi}{\eta} + \derp{\tilde u}{\eta}{2} \left(\derp{\eta}{y}{} \right)^2\\[5pt]
+	%&\derps{u}{x}{y} = \derp{\tilde u}{\xi}{2} \derp{\xi}{x}{} \derp{\xi}{y}{} + \derps{\tilde u}{\xi}{\eta}  \derp{\eta}{x}{} \derp{\xi}{y}{} + \derps{\tilde u}{\xi}{\eta} \derp{\xi}{x}{} \derp{\eta}{y}{} + \derp{\tilde u}{\eta}{2} \derp{\eta}{x}{} \derp{\eta}{y}{}
+\end{align*}
+Правые части формул представляют собой линейные функции относительно частных производных $u_\xi, u_\eta, u_{\xi \xi}, u_{\eta \eta}, u_{\xi \eta}$. Подставляя найденные производные в уравнение \eqref{equ:equCannSource}, мы получим снова \textit{линейное уравнение второго порядка} с неизвестной функцией $u$ и независимыми переменными $\xi$ и $\eta$
+\begin{equation}
+	\bar A_{11} \derp{\tilde u}{\xi}{2} + 2 \bar A_{12} \derps{\tilde u}{\xi}{\eta}  + \bar A_{22} \derp{\tilde u}{\eta}{2} + f\left(\xi, \eta, u, \derp{u}{\xi}{}, \derp{u}{\eta}{}\right) = 0
+	\label{equ:equCann2}
+\end{equation}
+где 
+\begin{align*}
+	&\bar A_{11} = A_{11} \left(\derp{\xi}{x}{} \right)^2 + 2 A_{12} \derp{\xi}{x}{} \derp{\xi}{y}{} + A_{22} \left(\derp{\xi}{y}{} \right)^2\\
+	&\bar A_{12} = A_{11} \derp{\xi}{x}{} \derp{\eta}{x}{} + A_{12} \left( \derp{\xi}{x}{} \derp{\eta}{y}{} + \derp{\eta}{x}{} \derp{\xi}{y}{} \right) + A_{22} \derp{\xi}{y}{} \derp{\eta}{y}{}\\
+	&\bar A_{22} = A_{11} \left(\derp{\eta}{x}{} \right)^2 + 2 A_{12} \derp{\eta}{x}{} \derp{\eta}{y}{} + A_{22} \left(\derp{\eta}{y}{} \right)^2
+\end{align*}
+а функция $f$ линейна относительно $\tilde u, \tilde u_\xi, \tilde u_\eta$.
+
+Уравнение \eqref{equ:equCann2} становится особенно простым, если коэффициенты $\bar A_{11}$ и $\bar A_{22}$ окажутся равными нулю. Для того чтобы первоначально заданное уравнение \eqref{equ:equCannSource} можно было привести к такому простому виду, надо в нём сделать замену переменных \eqref{equ:equChangeVariables}, подобрав функции $\varphi$ и $\psi$ так, чтобы они являлись ренеиями уравнения
+\begin{equation}
+	A_{11} \left(\derp{z}{x}{} \right)^2 + 2 A_{12} \derp{z}{x}{} \derp{z}{y}{} + A_{22}\left( \derp{z}{y}{}\right)^2 = 0.
+	\label{equ:Cann2}
+\end{equation}
+Это уравнение является линейным уравнением в частных производных первого порядка. 
+\begin{theo}
+	Для того, чтобы функция $z = f(x, y)$ во всех точках области $\Omega$ удовлетворяла уравнению \eqref{equ:Cann2}, необходимо и достаточно, чтоюы семейство $f(x, y) = const$ было общим интегралом уравнения 
+\begin{equation}
+	a (dy)^2 - 2 b dx dy + c (dx)^2 = 0
+	\label{equ:CannCharact}
+\end{equation}
+в той же области $\Omega$.
+\end{theo}
+Благодаря этой теореме мы можем упростить исходное уравнение \eqref{equ:equCannSource}, воспользовавшись \textit{методом характеристик}. Уравнение \eqref{equ:CannCharact} есть обычное дифференциальное уравнение первого порядка, но второй степени. Разрешая его относительно производной $y'$, получим два уравнения
+\begin{align}
+	y' = \frac{b + \sqrt{b^2 - ac}}{a} \label{equ:CannChar1}\\
+	y' = \frac{b - \sqrt{b^2 - ac}}{a} \label{equ:CannChar2}\\
+\end{align}
+Если общий интеграл уравнения \eqref{equ:CannChar1} имеет вид $\varphi(x, y) = const$, то полагая $\xi = \varphi(x, y)$, мы обращаем в нуль коэффициент при производной $u_{\xi \xi}$. Если $\psi(x, y) = const$ является общим,интегралом уравнения \eqref{equ:CannChar2}, независимым от интеграла $\varphi(x, y) = const$, то полагая $\eta = \psi (x, y)$, мы обратим в нуль также и коэффициент при производной $u_{\eta \eta}$.
+
+\newpage
+\subsubsection{Пример приведения линейного уравнения к каноническому виду}
+		\input{Examples_Partial_Deriviations_2_order.tex} \newpage 	

@@ -1,0 +1,113 @@
+При решении многих задач математической физики приходят к обыкновенному дифференциальному уравнению 
+\[
+	\left.
+	\begin{aligned}
+		&&\der{y}{x}{2} + \frac{1}{x} \der{y}{x}{} + \left(1 - \frac{n^2}{x^2} \right) y = 0\\
+		&\mbox{или}&\\
+		&&\frac{1}{x} \der{}{x}{} \left(x \der{y}{x}{} \right) + \left(1 - \frac{n^2}{x^2} \right) y = 0
+	\end{aligned}
+	\right\}
+\]
+называемому \textit{уравнением цилиндрических функций n-ого порядка.} Это уравнение часто также называют \textit{уравнением Бесселя n-го порядка.}
+
+Характерными задачами, приводящими к цилиндрическим функциям, являются краевые задачи для уравнения 
+\begin{equation}
+	\Delta u + k^2 u = 0
+	\label{equ:equBessel1}
+\end{equation}
+вне и внутри круга (вне или внутри цилиндра в случае трёх независимых переменных). Вводя полярные координаты, преобразуем уравнение \eqref{equ:equBessel1} к виду
+\begin{equation}
+	\frac{1}{r} \derp{}{r}{} \left(r \derp{u}{r}{} \right) + \frac{1}{r^2} \derp{u}{\varphi}{2} + k^2 u = 0.
+	\label{equ:equBessel2}
+\end{equation}
+Полагая $u = R\Phi$  и разделяя в \eqref{equ:equBessel2}  переменные, получаем:
+\[
+	\frac{1}{r} \der{}{r}{} \left(r \der{R}{r}{} \right) + \left(k^2 - \frac{\lambda}{r^2} \right) R = 0
+\]
+и
+\[
+	\Phi'' + \lambda \Phi = 0.
+\]
+Условие периодичности для $\Phi(\varphi)$ даёт $\lambda = n^2$, где $n$ --- целое число. Полагая затем $x = k r$, приходим к уравнению цилиндрических функций
+\[
+	\frac{1}{x} \der{}{x}{} \left(x \der{y}{x}{} \right) + \left(1 - \frac{n^2}{x^2} \right) y = 0, \quad R(r) = y (kr)
+\]
+или
+\[
+	y'' + \frac{1}{x} y' + \left(1 - \frac{n^2}{x^2} \right) y = 0
+\]
+В случае решений волнового уравнения \eqref{equ:equBessel1}, обладающих радиальной (цилиндрической) симметрией, мы получим \textit{уравнение Бесселя нулевого порядка}
+\[
+	\frac{1}{x} \der{}{x}{} \left(x \frac{y}{x} \right) + y = 0 \quad \mbox{или} \quad y'' + \frac{1}{x}y' + y =0.
+\]
+
+\textbf{Функции Бесселя}\\
+Уравнение Бесселя $\nu$-го порядка
+\begin{equation}
+	x^2y'' + x y' + (x^2 - \nu^2) y = 0
+	\label{equ:equBessel3}
+\end{equation}
+($\nu$ --- произвольное действительное или комплексное число, действительную часть которого мы можем считать неотрицательной) имеет особую точку при $x = 0$. Поэтому решение $y(x)$ следует искать в виде степенного ряда
+\begin{equation}
+	y(x) = x^\sigma (a_0 + a_1 x + a_2 x^2 + \ldots  + a_k x^k + \ldots),
+	\label{equ:equBessel4}
+\end{equation}
+начинающегося с $x^\sigma,$, где $\sigma$ -- характеристический показатель, подлежащий определению. Подставляя ряд \eqref{equ:equBessel4} в уравнение \eqref{equ:equBessel3} и приравнивая нулю коэффициенты для определения $\sigma$ и систему уравнений для определения коэффициентов $a_k$:
+\begin{equation}
+	\left.
+	\begin{aligned}
+		a_0(\sigma^@ - \nu^2) &= 0\\
+		a_1 [(\sigma + 1)^2 - \nu^2] &= 0\\
+		a_2 [(\sigma + 2)^2 - \nu^2] + a_0 &= 0\\
+		\ldots\\
+		a_k[(\sigma + k)^2 - \nu^2] + a_{k - 2} &= 0\\
+		(k = 2, 3, \ldots).
+	\end{aligned}
+	\right\}
+	\label{equ:equBessel5}
+\end{equation}
+Так как мы можем предположить, что $a_0 \neq 0$, то из первого уравнения \eqref{equ:equBessel5} следует, что 
+\begin{equation}
+	\sigma^2 - \nu^2 = 0 \quad \mbox{или} \quad \sigma = \pm \nu.
+	\label{equ:equBessel6}
+\end{equation}
+Перепишем $k$-е уравнение \eqref{equ:equBessel5} $k > 1$ в виде 
+\begin{equation}
+	(\sigma + k + \nu)(\sigma + k - \nu) a_k + a_{k - 2} = 0.
+	\label{equ:equBessel7}
+\end{equation}
+Оставим в стороне тот случай, когда $\sigma + \nu$ или $\sigma - \nu$ (и соответственно $- 2 \nu$ или $2 \nu$) равно отрицательному целому числу. 
+
+Тогда из уравнения \eqref{equ:equBessel5}, в силу \eqref{equ:equBessel6}, будем иметь
+\[
+	a_1 = 0
+\]
+Уравнение \eqref{equ:equBessel7} даёт рекурентную формулу для определенния $a_k$ через $a_{k -2}$:
+\[
+	a_k = - \frac{a_{k - 2}}{(\sigma + k + \nu) (\sigma + k - \nu)}.
+\]
+Отсюда каждый чётный коэффициент может быть выражен через предыдущий
+\[
+	a_{2m} = - a_{2m - } \frac{1}{2^2 m (m + \nu)}.
+\]
+
+Положим, что 
+\[
+	a_0 = \frac{1}{2 ^\nu \Gamma(\nu + 1)}
+\]
+Воспользовавшись свойством гамма функции $\Gamma(s + 1) = s!$ найдём коэффициенты
+\[
+	a_{2k} = (-1)^k \frac{1}{2^{2k + \nu} \Gamma(k + 1) \Gamma(k + \nu + 1)}.
+\]
+Ряд, соответствующий $\sigma = \nu \geqslant 0$
+\begin{equation}
+	J_\nu(x) = \sum\limits_{k = 0}^\infty (- 1)^n \frac{1}{\Gamma(k + 1)\Gamma(k + \nu + 1)} \left(\frac{x}{2} \right)^{2k + \nu}
+	\label{equ:equBessel8}
+\end{equation}
+называется \textit{функцией Бесселя первого рода $\nu$-го порядка.}
+Ряд
+\begin{equation}
+	J_{-\nu}(x) = \sum\limits_{k = 0}^\infty (- 1)^n \frac{1}{\Gamma(k + 1)\Gamma(k - \nu + 1)} \left(\frac{x}{2} \right)^{2k - \nu}
+	\label{equ:equBessel9}
+\end{equation}
+соответствующий $\sigma = - \nu$, представляет второе решение уравнения \eqref{equ:equBessel3}, линейно независимое от $J_\nu(x)$.

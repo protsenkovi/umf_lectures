@@ -1,0 +1,96 @@
+Рассмотрим неоднородное уравнение колебаний
+\begin{equation}
+	\derp{u}{t}{2} = a^2 \derp{u}{x}{2} + f(x, t), \quad a^2 = \frac{k}{\rho}, \quad 0 < x < l
+	\label{equ:FourierNonordinary1}
+\end{equation}
+с начальными условиями
+\begin{equation}
+	\left.
+	\begin{aligned}
+		u(x, 0) &= \varphi(x),\\
+		u_t(x, 0) &= \psi(x),
+	\end{aligned}
+	\right\} \quad 0 \leqslant x \leqslant l
+	\label{equ:FourierNonordinary2}
+\end{equation}
+и однородными граничными условиями
+\begin{equation}
+	\left.
+	\begin{aligned}
+		u(0, t) &= 0,\\
+		u(l, t) &= 0,
+	\end{aligned}
+	\right\} \quad t > 0.
+	\label{equ:FourierNonordinary3}
+\end{equation}
+Будем искать решение задачи в виде разложения в ряд Фурье по $x$
+\begin{equation}
+	u(x, t) = \sum\limits_{n = 1}^{\infty} u_n(t) \sin \frac{\pi n}{l}x,
+	\label{equ:FourierNonordinary4}
+\end{equation}
+рассматривая при этом $t$ как параметр. Для нахождения $u(x, t)$ надо определить функцию $u_n(t)$. Представим функцию $f(x, y)$ и начальные условия в виде рядов Фурье:
+\begin{equation}
+	\left.
+	\begin{aligned}
+		f(x, t) &= \sum\limits_{n = 1}^{\infty} f_n (t) \sin \frac{\pi n}{l} x, &f_n(t) &= \frac{2}{l} \int\limits_0^l f(\xi, t) \sin \frac{\pi n}{l} \xi\, d \xi;\\
+		\varphi(x) &= \sum\limits_{n = 1}^{\infty} \varphi_n \sin \frac{\pi n}{l}x, &\varphi_n &= \frac{2}{l} \int\limits_0^l \varphi(\xi) \sin \frac{\pi n}{l} \xi \, d\xi\\
+		\psi(x) &= \sum\limits_{n = 1}^{\infty} \psi_n \sin \frac{\pi n}{l}x, &\psi_n &= \frac{2}{l} \int\limits_0^l \psi(\xi) \sin \frac{\pi n}{l} \xi \, d\xi
+	\end{aligned}
+	\right\} 
+	\label{equ:FourierNonordinary5}
+\end{equation}
+Подставляя предполагаемую форму решения \eqref{equ:FourierNonordinary4} в исходное уравнение  \eqref{equ:FourierNonordinary1}
+\[
+	\sum\limits_{n = 1}^\infty \sin \frac{\pi n}{l} x \left\{- a^2 \left(\frac{\pi n}{l} \right)^2 u_n(t) - \ddot u_n (t) + f_n (t) \right\} = 0,
+\]
+видим, что оно будет удовлетворено, если все коэффициенты разложения равны нулю, т.е.
+\begin{equation}
+	\ddot u_n(t) + \left(\frac{\pi n}{l} \right)^2 a^2 u_n (t) = f_n (t).
+	\label{equ:FourierNonordinary6}
+\end{equation}
+
+Для определения $u_n(t)$ мы получили обыкновенное дифференциальное уравнение с постоянными коэффициентами. Начальные условия дают:
+\begin{align*}
+	u(x, 0) = \varphi(x) = \sum\limits_{n = 1}^\infty u_n(0) \sin \frac{\pi n}{l} x = \sum\limits_{n = 1}^\infty \varphi_n \sin \frac{\pi n}{l} x,\\
+	u_t(x, 0) = \psi(x) = \sum\limits_{n = 1}^\infty \dot u_n(0) \sin \frac{\pi n}{l} x = \sum\limits_{n = 1}^\infty \psi_n \sin \frac{\pi n}{l} x,
+\end{align*}
+откуда следует:
+\begin{equation}
+	\left.
+	\begin{aligned}
+		u_n(0) = \varphi_n,\\
+		\dot u_n(0) = \psi_n.
+	\end{aligned}
+	\right\}
+	\label{equ:FourierNonordinary7}
+\end{equation}
+
+Эти дополнительные условия полностью определяют решение уравнения \eqref{equ:FourierNonordinary6}. Функцию $u_n(t)$ можно представить в виде
+\[
+	u_n(t) = u_n^{(\mathrm{I})} (t) + u_n^{(\mathrm{II})} (t) 
+\]
+где
+\begin{equation}
+	u_n^{(\mathrm{I})} (t) = \frac{1}{\pi n a} \int\limits_0^t \sin \frac{\pi n}{l} a (t - \tau) \cdot f_n (\tau)\, d\tau
+	\label{equ:FourierNonordinary8}
+\end{equation}
+есть решение неоднородного уравнения с нулевыми начальными условиями и 
+\begin{equation}
+	u_n^{(\mathrm{II})} (t) = \varphi_n \cos \frac{\pi n}{l} at + \frac{1}{\pi n a}\psi_n \sin \frac{\pi n}{l} a t
+	\label{equ:FourierNonordinary9}
+\end{equation}
+--- решение однородного уравнения с заданными начальными условиями. Таким образом, искомое решение запишется в виде
+\begin{align*}
+	&u(x, t) = \sum\limits_{n = 1}^\infty \frac{1}{\pi n a} \int\limits_0^t \sin \frac{\pi n}{l} a (t - \tau) \sin \frac{\pi n}{l}x \cdot f_n(\tau)\, d\tau + \\
+	&\phantom{u(x, t) =} + \int\limits_{n = 1}^\infty \left(\varphi_n \cos \frac{\pi n}{l} a t + \frac{1}{\pi n a} \psi_n \sin \frac{\pi n}{l} a t \right) \sin \frac{\pi n}{l}x.
+\end{align*}
+
+Вторая сумма представляет решение задачи о свободных колебаниях струны при заданных начальных условиях и была решена ранее. Обратимся к первой сумме, представляющей вынужденные колебания струны под действием внешней силы при нулевых начальных условиях. Пользуясь выражением \eqref{equ:FourierNonordinary5} для $f_n(t)$, находим:
+\begin{align*}
+	u_n^{(\mathrm{I})} (x, t) &= \int\limits_0^t \int\limits_0^l \left\{\frac{2}{l} \sum\limits_{n = 1}^\infty \frac{l}{\pi n a} \sin \frac{\pi n}{l} a(t - \tau) \sin \frac{\pi n}{l} x \sin \frac{\pi n}{l} \xi \right\} f(\xi, \tau)\, d\xi d\tau =\\
+	&=\int\limits_0^t \int\limits_0^l G(x, \xi, t - \tau) f(\xi, \tau)\, d\xi d\tau,
+\end{align*}
+где 
+\[
+	G(x, \xi, t - \tau) = \frac{2}{\pi a} \sum\limits_{n = 1}^\infty \frac{1}{n} \sin \frac{\pi n}{l} a(t - \tau) \sin \frac{\pi n}{l} x \sin \frac{\pi n}{l} \xi.
+\]
